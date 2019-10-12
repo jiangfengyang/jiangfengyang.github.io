@@ -1223,7 +1223,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #164559;
+  background: #03c9d7;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2205,7 +2205,7 @@ ul.breadcrumb li + li:last-child {
 .gt-popup a {
   border-bottom: none;
 }
-.gt-container .gt-popup .gt-action.is--active:before {
+.gt-container .gt-popup .gt-action.is--active::before {
   top: 0.7em;
 }
 .search-pop-overlay {
@@ -2318,14 +2318,6 @@ ul.breadcrumb li + li:last-child {
   position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
-}
-.gt-header a,
-.gt-comments a,
-.gt-popup a {
-  border-bottom: none;
-}
-.gt-container .gt-popup .gt-action.is--active:before {
-  top: 0.7em;
 }
 .header {
   margin: 0 auto;
