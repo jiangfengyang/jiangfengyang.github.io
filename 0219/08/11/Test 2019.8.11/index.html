@@ -1,0 +1,648 @@
+﻿<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.1">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.1" color="#222">
+  <link rel="alternate" href="/atom.xml" title="jfyの博客" type="application/atom+xml">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.1">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.4.1',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="题目传送门T1          T2          T3          T4">
+<meta name="keywords" content="考试,题解">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Test 2019.8.11 题解">
+<meta property="og:url" content="http://jfyblog.xyz/0219/08/11/Test 2019.8.11/index.html">
+<meta property="og:site_name" content="jfyの博客">
+<meta property="og:description" content="题目传送门T1          T2          T3          T4">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-10-11T12:48:14.275Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Test 2019.8.11 题解">
+<meta name="twitter:description" content="题目传送门T1          T2          T3          T4">
+  <link rel="canonical" href="http://jfyblog.xyz/0219/08/11/Test 2019.8.11/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>Test 2019.8.11 题解 | jfyの博客</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">jfyの博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">Don't cry because it's over,smile because it happened</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+        
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+      
+    
+      
+      
+        
+        
+        <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+      
+    
+      
+      
+        
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+      
+    
+      
+      
+        
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      
+    
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger">
+        
+          <i class="fa fa-search fa-fw"></i>
+        
+        搜索
+        </a>
+      </li>
+    
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/jiangfengyang" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://jfyblog.xyz/0219/08/11/Test 2019.8.11/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="jfy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="jfyの博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            Test 2019.8.11 题解
+            
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：0219-08-11 00:00:00" itemprop="dateCreated datePublished" datetime="0219-08-11T00:00:00+08:00">0219-08-11</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-10-11 20:48:14" itemprop="dateModified" datetime="2019-10-11T20:48:14+08:00">2019-10-11</time>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h3 id="题目传送门"><a href="#题目传送门" class="headerlink" title="题目传送门"></a><strong>题目传送门</strong></h3><p><a href="http://211.140.156.254:2334/problem.php?cid=1055&pid=0" target="_blank" rel="noopener">T1</a>          <a href="http://211.140.156.254:2334/problem.php?cid=1055&pid=1" target="_blank" rel="noopener">T2</a>          <a href="http://211.140.156.254:2334/problem.php?cid=1055&pid=2" target="_blank" rel="noopener">T3</a>          <a href="http://211.140.156.254:2334/problem.php?cid=1055&pid=3" target="_blank" rel="noopener">T4</a></p>
+<a id="more"></a>
+
+<hr>
+<iframe border="0" marginwidth="0" marginheight="0" src="https://music.163.com/outchain/player?type=2&amp;id=1349292048&amp;auto=1&amp;height=66" width="330" height="86" frameborder="no"></iframe>
+
+<h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a><strong>题解</strong></h3><h5 id="T1-买鸡"><a href="#T1-买鸡" class="headerlink" title="T1 买鸡"></a>T1 买鸡</h5><p>这道题题面较为简单，很容易想到无脑暴力。打着 <strong>三维</strong> 的暴力，嘴里哼着小曲，一切会体面，woc数据范围有 <strong>20000</strong> ！！！转念一想，觉得还是有很大优化空间的，于是三维的暴力就成了二维的n方暴力，代码如下。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">#define re register int</span><br><span class="line">using namespace std;</span><br><span class="line">int n,m,s1,s2,t;</span><br><span class="line">int main()&#123;</span><br><span class="line">	scanf(&quot;%d%d&quot;,&amp;m,&amp;n);   //输入，ps:本人在此将m当成钱，n当成只数.</span><br><span class="line">	for(re i=0;i&lt;=n;i++)&#123;     //枚举过程，从0只公鸡枚举到n只公鸡.</span><br><span class="line">		s1=i*5;    //买i只公鸡所花的钱</span><br><span class="line">		for(re j=0;j&lt;=n;++j)&#123;   //从0只母鸡枚举到n只母鸡.</span><br><span class="line">			s2=j*3;    //买i只母鸡所花的钱.</span><br><span class="line">            t=(m-s1-s2)*3;    //m-s1-s2是剩下的钱，因为一元钱可以买三只鸡，所以乘3.</span><br><span class="line">			if(t+i+j==n)printf(&quot;%d %d %d\n&quot;,i,j,t);//如果买的鸡数等于题目要求数，输出</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><del>没有优化的还是比较简单无脑的</del></p>
+<p>但是，有的 DL 就会提出疑问了，n方的复杂度，20000<strong>不是也会超时吗</strong>？</p>
+<p><em>正确！</em></p>
+<p>当 <strong>i</strong> 为 <strong>k</strong> 时，<strong>j</strong> 能取的最大值为 <strong>n-k</strong>.</p>
+<p>所以我们还可以优化 <strong>j</strong> 循环的次数，在数据较大时能砍下不少常数. <del>(浪费时间)</del></p>
+<p>得到以下伪代码:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">for(i=0;i&lt;=n;++i)&#123;</span><br><span class="line">    for(j=0;j&lt;=n-i;++j)&#123;  //优化为n-i</span><br><span class="line">    	····</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>很多人以为这样就优化完了，实则不然，再细看题面，发现还可以优化，在 <strong>i</strong> 循环的过程中，可以将循环的最大值设为 <strong>min(m/5,n)</strong> ,为什么呢？因为m为钱,一只公鸡需要5元，那么最多买的公鸡数则为<strong>m/5</strong>   <del>(ps:买不起)</del>。同理，j也是如此。</p>
+<p>最终得到以下代码（仅供参考）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">#define re register int</span><br><span class="line">using namespace std;</span><br><span class="line">int n,m,s1,s2,s3,t;</span><br><span class="line">int main()&#123;</span><br><span class="line">	scanf(&quot;%d%d&quot;,&amp;m,&amp;n);</span><br><span class="line">	for(re i=0;i&lt;=min(m/5,n);++i)&#123;</span><br><span class="line">		s1=i*5;</span><br><span class="line">		for(re j=0;j&lt;=min(m-i*5,n-i);++j)&#123;</span><br><span class="line">			s2=j*3;t=(m-s1-s2)*3;</span><br><span class="line">			if(t+i+j==n)printf(&quot;%d %d %d\n&quot;,i,j,t);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h5 id="T2-勾股数"><a href="#T2-勾股数" class="headerlink" title="T2 勾股数"></a>T2 勾股数</h5><p>本人目前能力有限，还暂时不会订正，先放一下本人的暴力代码。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">#define re register int</span><br><span class="line">#define fly(a,b,c) for(re a=b;a&lt;=c;a++)</span><br><span class="line">using namespace std;</span><br><span class="line">int r,k;</span><br><span class="line">long long s1,s2,ans;</span><br><span class="line">int check(long long n)&#123;</span><br><span class="line">	if(sqrt(n)*sqrt(n)==n)return 1;</span><br><span class="line">	else return 0;</span><br><span class="line">&#125;</span><br><span class="line">int main()&#123;</span><br><span class="line">	scanf(&quot;%d&quot;,&amp;r);</span><br><span class="line">	fly(i,1,r)&#123;</span><br><span class="line">		s1=i*i;</span><br><span class="line">		fly(j,i,r)&#123;</span><br><span class="line">			s2=j*j;</span><br><span class="line">			if(check(s1+s2))&#123;</span><br><span class="line">				++j,++ans,k=sqrt(s1+s2);</span><br><span class="line">				printf(&quot;%d %d %d\n&quot;,i,j,k);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	printf(&quot;%d&quot;,ans);</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h5 id="T3-ISBN码"><a href="#T3-ISBN码" class="headerlink" title="T3 ISBN码"></a>T3 ISBN码</h5><p>em,与洛谷的一道题目有些相似:<a href="https://www.luogu.org/problem/P1055" target="_blank" rel="noopener">传送门</a></p>
+<p>一道超简单的字符串模拟，就是处理有点繁琐而已。</p>
+<p>1.读入，获取字符长度 <del>（等于没说）</del></p>
+<p>2.按照ISBN的顺序求一个sum，记录”?”的出现位置</p>
+<p>3.枚举</p>
+<p>4.特判</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">#define re register int</span><br><span class="line">#define r (10-i)</span><br><span class="line">using namespace std;</span><br><span class="line">char s[39];</span><br><span class="line">int sum,l,p,k[39];</span><br><span class="line">int main()&#123;</span><br><span class="line">	freopen(&quot;isbn.in&quot;,&quot;r&quot;,stdin);</span><br><span class="line">	freopen(&quot;isbn.out&quot;,&quot;w&quot;,stdout);</span><br><span class="line">	cin&gt;&gt;s,l=strlen(s);</span><br><span class="line">	for(re i=0;i&lt;l;i++)&#123;</span><br><span class="line">		if(s[i]!=&apos;X&apos;&amp;&amp;s[i]!=&apos;?&apos;)k[i+1]=(s[i]-&apos;0&apos;)*r,sum+=k[i+1];</span><br><span class="line">		else if(s[i]==&apos;?&apos;)p=i;</span><br><span class="line">		else if(s[i]==&apos;X&apos;)k[i+1]=10*r,sum+=k[i+1];</span><br><span class="line">	&#125;</span><br><span class="line">	for(re i=0;i&lt;=10;i++)&#123;</span><br><span class="line">		if((sum+i*(10-p))%11==0&amp;&amp;i!=10)&#123;</span><br><span class="line">			printf(&quot;%d&quot;,i);</span><br><span class="line">			return 0;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	if(p==9)printf(&quot;X&quot;);</span><br><span class="line">	else printf(&quot;-1&quot;);</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h5 id="T4-对角线"><a href="#T4-对角线" class="headerlink" title="T4 对角线"></a>T4 对角线</h5><p>一道十分简单的模拟题，首先打出横竖两行应该是很简单的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">scanf(&quot;%d%d%d&quot;,&amp;n,&amp;x,&amp;y);</span><br><span class="line">FLY(i,1,n)printf(&quot;(%d,%d)&quot;,x,i);</span><br><span class="line">FLY(j,1,n)printf(&quot;(%d,%d)&quot;,j,y);</span><br><span class="line">//（注:FLY是自己码风的问题，总的来说是for(register int a=b;a&lt;=c;a++)）</span><br></pre></td></tr></table></figure>
+
+<p>然后斜着两条略有一点难度,我的做法挺简单，但码量有点大</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">xx=x,yy=y;</span><br><span class="line">while(xx&gt;1&amp;&amp;yy&gt;1)&#123;--xx;--yy;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>首先用 xx,yy 来定位(x,y),接着往左上方搜，如果到了对角线的顶点，就停止记录，接着是输出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">while(xx&lt;=n&amp;&amp;yy&lt;=n)&#123;printf(&quot;(%d,%d)&quot;,xx++,yy++);&#125;</span><br></pre></td></tr></table></figure>
+
+<p>同理可得另外一条斜边的代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">while(xx&lt;n&amp;&amp;yy&gt;1)&#123;++xx;--yy;&#125;</span><br><span class="line">while(xx&gt;0&amp;&amp;yy&lt;=n)&#123;printf(&quot;(%d,%d)&quot;,xx--,yy++);&#125;</span><br></pre></td></tr></table></figure>
+    </div>
+<div>
+  
+    ﻿<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+  
+</div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/考试/" rel="tag"># 考试</a>
+            
+              <a href="/tags/题解/" rel="tag"># 题解</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2019/05/04/Test 2019.5.4/" rel="prev" title="Test 2019.5.4 题解">
+                  Test 2019.5.4 题解 <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    
+    <div class="comments" id="gitalk-container"></div>
+  
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目传送门"><span class="nav-number">1.</span> <span class="nav-text">题目传送门</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题解"><span class="nav-number">2.</span> <span class="nav-text">题解</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#T1-买鸡"><span class="nav-number">2.0.1.</span> <span class="nav-text">T1 买鸡</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#T2-勾股数"><span class="nav-number">2.0.2.</span> <span class="nav-text">T2 勾股数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#T3-ISBN码"><span class="nav-number">2.0.3.</span> <span class="nav-text">T3 ISBN码</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#T4-对角线"><span class="nav-number">2.0.4.</span> <span class="nav-text">T4 对角线</span></a></li></ol></li></ol></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/avatar.jpg"
+      alt="jfy">
+  <p class="site-author-name" itemprop="name">jfy</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+</div>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/jiangfengyang" title="GitHub &rarr; https://github.com/jiangfengyang" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="mailto:1135617253@qq.com" title="E-Mail &rarr; mailto:1135617253@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+    
+  </div>
+
+
+
+      </div>
+
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1332954223&auto=1&height=66"></iframe>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">jfy</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.1
+  </div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+    
+  
+  <script color='0,0,0' opacity='0.5' zIndex='-1' count='150' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
+<script src="/js/schemes/pisces.js?v=7.4.1"></script>
+
+<script src="/js/next-boot.js?v=7.4.1"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.4.1"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID: '872e888d57465422ca0e',
+      clientSecret: '7a2d4a17d929548e973e5454b41a8ad5fcbae47a',
+      repo: 'jiangfengyang.github.io',
+      owner: 'jiangfengyang',
+      admin: ['jiangfengyang'],
+      id: '4148134ae0d024bbee0ecd7cd0d49cf2',
+        language: 'zh-CN',
+      
+      distractionFreeMode: 'true'
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+</script>
+
+
+   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+   <script type="text/javascript" src="/js/src/fireworks.js"></script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":150,"height":400},"mobile":{"show":false},"log":false});</script></body>
+</html>
