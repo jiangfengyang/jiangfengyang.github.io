@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[红星照耀中国读后感]]></title>
+    <url>%2F2019%2F10%2F13%2F%E7%BA%A2%E6%98%9F%E7%85%A7%E8%80%80%E4%B8%AD%E5%9B%BD%E8%AF%BB%E5%90%8E%E6%84%9F%2F</url>
+    <content type="text"><![CDATA[​ 《红星照耀中国》又称《西行漫记》，是著名记者埃德加-斯诺的不朽名著，作者真实记录了自1936年6月至10月在中国西北革命根据地的所见所闻，向全世界真实地报道了中国共产党和中国工农红军以及许多红军领袖、将领的情况。整本书以斯诺的第一视角,生动丰富地描述了红色根据地大大小小的人物与事件,他通过搜集长征的第一手资料,与革命领导人进行谈话,运用文字的力量将这段波澜壮阔、激情燃烧的岁月鲜活地呈现在我们眼前。 ​ 这本书有很多故事感人至深，至今印象深刻。其中有这样一个故事：官帽山上的300多名红军被敌军重重围困。团长许光达突然看见有一条长长的藤萝，马上带领红军战士用藤萝顺利下官帽山。红军战士用智慧和勇敢突围了。还有一个故事：夏明翰在1921年成为共产党员，后来，由于叛徒的出卖，夏明翰不幸被捕。夏明翰写下了那首著名的起义诗：砍头不要紧，只要主义真。杀了夏明翰，还有后来人！从这两个故事中让我知道了红军战士们以他们的生命和鲜血，谱写了一曲曲胜利的凯歌，为中国人民事业立下了不朽功绩。 ​ 在《红色照耀中国》中，作者用铁的事实向世界宣告：中国共产党及其领导的革命事业犹如一颗善良的红星不仅照耀着中国的西北，而且必将照耀全中国，照耀全世界。同时，作者在书中用风趣朴实的语言描绘了中国共产党人和红军战士坚韧不拔、英勇卓绝的伟大斗争，以及红军的领袖人物的伟大而平凡的精神风貌。 ​ 读这本书，我通过领导人们的自述，了解了毛泽东、朱德、彭德怀等中国共产党的领导人和红军将领的生平经历，我就像亲眼看到了红军二万五千里长征中付出的艰辛。我知道了红军的生活，我还知道了小小年纪就参加革命的“红小鬼”，我“亲身经历”了那次的西安事变……《红星照耀中国》真切地让我们再次回到了那段激情燃烧，烽火连天的峥嵘岁月，深刻地感受到中国共产党进行革命的艰难历程。 ​ 我们要珍惜现在来之不易的美好生活，在生活，学习中百折不挠，努力拼搏，把红军精神发扬光大，让红军精神代代相传。让我们铭记那段历史吧，珍惜今天所拥有的，跟这位美国人一样深爱着这片红色土地，因为我们是中国人！]]></content>
+      <tags>
+        <tag>随笔</tag>
+        <tag>读后感</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Test 2019.10.7 题解]]></title>
     <url>%2F2019%2F10%2F07%2FTest%202019.10.7%2F</url>
     <content type="text"><![CDATA[这次试卷比较水 我只考了145，前三道是思维题，最后一道考代码功底…… 题目传送门T1 T2 T3 T4 题解T1一道模拟的水题，读入后只需要把所有数的最大公因数求出来就行了，建议手打$gcd$.（__gcd） 12345678910111213#include&lt;bits/stdc++.h&gt;using namespace std;int n,a[501];int main()&#123; scanf("%d",&amp;n); for(int i=1;i&lt;=n;i++) scanf("%d",a+i); int lg = a[1]; for(int i=2;i&lt;=n;i++) lg = __gcd(lg,a[i]); printf("%d\n",lg); return 0;&#125; T2数学题，先拆括号为a1-a2+a2-……+an-1-an，然后化简，得到最大值即为a1-an. 所以我们在读入后对数组排一遍序. 123scanf("%d",&amp;n);for(re i=1;i&lt;=n;i++)scanf("%d",&amp;s[i]);sort(s+1,s+n+1); 然后就很简单了. 先输出$s[n]$（最大的数） 接着从 $2$ 到 $n-1$ 输出$s[i]$ 最后输出 $s[1]$ 1234567891011121314#include&lt;bits/stdc++.h&gt;#define re register int#define L 100005using namespace std;int n,s[L],f[L];int main()&#123; scanf("%d",&amp;n); for(re i=1;i&lt;=n;i++)scanf("%d",&amp;s[i]); sort(s+1,s+n+1); printf("%d ",s[n]); for(re i=2;i&lt;n;i++)printf("%d ",s[i]); printf("%d ",s[1]); return 0;&#125; T3一道博弈论的题目，考试的时候没想通，直接输出暴了个 $0$ 分 有不懂得地方可以参考下这篇文章: 博弈论入门 自己没怎么想懂，先贴代码，以后补坑 1234567891011121314151617181920212223242526#include&lt;bits/stdc++.h&gt;#define re register int#define maxn 1039using namespace std;int t,n,s[maxn],x,y;int main()&#123;// freopen("game.in","r",stdin);// freopen("game.out","w",stdout); scanf("%d",&amp;t); while(t--)&#123; scanf("%d",&amp;n); for(re i=1;i&lt;=n;++i)scanf("%d",&amp;s[i]); for(re i=1;i&lt;=n;++i)&#123; if(s[i])x++; else if(!s[i])break; &#125; for(re i=n;i&gt;0;--i)&#123; if(s[i])y++; else if(!s[i])break; &#125; if(x%2||y%2)printf("Yes\n"); else printf("No\n"); x=0,y=0;memset(s,0,sizeof(s)); &#125; return 0;&#125; T4他死了. 是 状态压缩动态规划 || 记忆化搜索(其实差不多) 我是打了个暴搜，正解还在打 123456789101112131415161718192021222324#include&lt;bits/stdc++.h&gt;#define re register int#define L 39#define check(); p=1;for(re j=1;j&lt;=n;j++)if(!f[j])p=0;if(p)if(t&lt;ans)ans=t;using namespace std;int n,s[L][L],f[L],p,ans=214748364;void dfs(int x,int t)&#123; if(f[x]||t&gt;ans)return; f[x]=1;check();f[x]=0; for(re y=1;y&lt;=n;y++)&#123; if(y==x)continue; f[x]=1;dfs(y,t+s[x][y]);f[x]=0; &#125; return;&#125;int main()&#123; scanf("%d",&amp;n); for(re i=1;i&lt;=n;i++) for(re j=1;j&lt;=n;j++) scanf("%d",&amp;s[i][j]); for(re i=1;i&lt;=n;i++)dfs(i,0); printf("%d",ans); return 0;&#125; PS这好像是我留坑最多的题解了…..]]></content>
@@ -50,6 +59,7 @@
     <content type="text"><![CDATA[em,暑假集训转眼就要过去了，虽说这段时间状态有所下滑，但也学到了不少新的知识： 1.初赛的相关知识(电脑常识，反码补码，CCF赞歌) 2.部分模板(排序，数论，快速幂) 3.考试的一些经验，心态，以及各种骗分，优化 在本次集训中，也发现了自己很多的不足: 1.考试的时候像在做梦，考差之后才会认真做题。 2.心浮气躁，每道题的特殊数据点总是会没有想到，导致第一题和第二题都有大量失分的情况 3.思维有些固定化，每道题基本上都是一个个板子打出来的 ……. 总之，还有诸多的不足，希望自己在剩下的十天能加以改进，以备下一次集训时能向前冲！ 1234567while(day++)&#123; hard++; scoure++; NOIP++; if(scoure&gt;300)printf(&quot;省一！&quot;);&#125;]]></content>
       <tags>
         <tag>随笔</tag>
+        <tag>集训</tag>
       </tags>
   </entry>
   <entry>
@@ -61,6 +71,10 @@
     <title><![CDATA[快读&快写模板]]></title>
     <url>%2F2019%2F08%2F16%2F%E5%BF%AB%E8%AF%BB%E5%BF%AB%E5%86%99%2F</url>
     <content type="text"><![CDATA[快读和快写，就是利用字符串的一些特殊性质进行读入，输出；在一定情况下（输入数据十分庞大），可以大大的缩短时间。 注意这个快读是非常的重要的，我想这应该是想要在OI这条路上走远的所有OIer必须会的东西。养成每次写题目都加上快读的好习惯，有可能会在关键的时候救你一命！ 普通快读12345678inline void read(int &amp;x)&#123; int s = 0, w = 1; char ch = getchar(); while(ch &lt; &apos;0&apos; || ch &gt; &apos;9&apos;)&#123; if(ch == &apos;-&apos;) w = -1; ch = getchar(); &#125; while(ch &gt;= &apos;0&apos; &amp;&amp; ch &lt;= &apos;9&apos;) s = s * 10 + ch - &apos;0&apos;, ch = getchar(); x = s*w; return ;&#125; getchar ，就是将数字当字符读取，比scanf快很多w用来判断数字是不是负号，如果想的话可以再压一下行 普通快写123456789inline void out(int a)&#123; if(x&lt;0)&#123; putchar(&apos;-&apos;); x=-x; &#125; if(a&gt;9)write(x/10); putchar(a%10+&apos;0&apos;);&#125; 快写也非常简单，利用int与ASCII码之间转换，实现快读快写的目的。 最后来一发灵魂快读 123456int read()&#123; int a cin&gt;&gt;a; return a;&#125;]]></content>
+      <tags>
+        <tag>模板</tag>
+        <tag>优化</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Test 2019.8.14 题解]]></title>
