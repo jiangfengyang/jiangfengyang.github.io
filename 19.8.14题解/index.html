@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>19.8.14 题解 | jfyの博客 | Don&#39;t cry because it&#39;s over,smile because it happened</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    
+    <meta name="keywords" content>
+    <meta name="description" content="题目传送门T1          T2          T3          T4           T5">
+<meta property="og:type" content="website">
+<meta property="og:title" content="19.8.14 题解">
+<meta property="og:url" content="http://jfyblog.xyz/19.8.14题解/index.html">
+<meta property="og:site_name" content="jfyの博客">
+<meta property="og:description" content="题目传送门T1          T2          T3          T4           T5">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-10-15T15:10:53.061Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="19.8.14 题解">
+<meta name="twitter:description" content="题目传送门T1          T2          T3          T4           T5">
+    
+        <link rel="alternate" type="application/atom+xml" title="jfyの博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">jfy</h5>
+          <a href="mailto:undefined" class="mail">
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">19.8.14 题解</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+    </div>
+</header>
+<header class="content-header page-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">19.8.14 题解</h1>
+        <h5 class="subtitle">
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    <article class="page-article fade" itemprop="blogPage">
+        <div class="post-content page-content" id="page-content" itemprop="pageContent">
+            <h3 id="题目传送门"><a href="#题目传送门" class="headerlink" title="题目传送门"></a><strong>题目传送门</strong></h3><p><a href="http://211.140.156.254:2334/problem.php?cid=1058&pid=0" target="_blank" rel="noopener">T1</a>          <a href="http://211.140.156.254:2334/problem.php?cid=1058&pid=1" target="_blank" rel="noopener">T2</a>          <a href="http://211.140.156.254:2334/problem.php?cid=1058&pid=2" target="_blank" rel="noopener">T3</a>          <a href="http://211.140.156.254:2334/problem.php?cid=1058&pid=3" target="_blank" rel="noopener">T4</a>           <a href="http://211.140.156.254:2334/problem.php?cid=1058&pid=4" target="_blank" rel="noopener">T5</a></p>
+<a id="more"></a>
+
+<hr>
+<iframe border="0" marginwidth="0" marginheight="0" src="https://music.163.com/outchain/player?type=2&amp;id=1349292048&amp;auto=1&amp;height=66" width="330" height="86" frameborder="no"></iframe>
+
+<h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><h5 id="T1-NBA-总冠军"><a href="#T1-NBA-总冠军" class="headerlink" title="T1 NBA 总冠军"></a>T1 NBA 总冠军</h5><p>一看题面，哎哎哟，不是一道超级水题吗，啪啪啪，飞速的打完代码，一过样例，直接提交。</p>
+<p>但是，但是，这这这 <del>作为一个观看NBA10几年的老粉</del>。居然没有想到洛杉矶湖人（Los angels）。</p>
+<p>好吧，这看似简单的题面难度瞬间上了一个档次：</p>
+<p>1.geline       读入</p>
+<p>2.分出名字和时间</p>
+<p>3.去掉c里的时间</p>
+<p>4.结构体排序</p>
+<p>5.边去重边输出</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">#define re register int</span><br><span class="line">using namespace std;</span><br><span class="line">struct NBA&#123;string c;int t;&#125;a[51];</span><br><span class="line">int n,x;</span><br><span class="line">bool cmp(NBA x,NBA y)&#123;return x.t&lt;y.t;&#125;</span><br><span class="line">int main()&#123;</span><br><span class="line">    scanf(&quot;%d\n&quot;,&amp;n);</span><br><span class="line">    for(int i=1;i&lt;=n;++i)&#123;</span><br><span class="line">        getline(cin,a[i].c);</span><br><span class="line">        x=0;</span><br><span class="line">        for(int j=0;j&lt;a[i].c.length();++j)</span><br><span class="line">            if((a[i].c[j]&gt;=&apos;0&apos;)&amp;&amp;(a[i].c[j]&lt;=&apos;9&apos;))x=x*10+a[i].c[j]-&apos;0&apos;;   //查找时间</span><br><span class="line">        a[i].t=x;a[i].c.erase(a[i].c.size()-5,5);   //去掉字符串的时间</span><br><span class="line">    &#125;</span><br><span class="line">    sort(a+1,a+n+1,cmp);   //结构体排序</span><br><span class="line">    for(int i=1;i&lt;=n;++i)</span><br><span class="line">        if(a[i].t!=a[i-1].t)   //去重</span><br><span class="line">            cout&lt;&lt;a[i].t&lt;&lt;&quot; &quot;&lt;&lt;a[i].c&lt;&lt;endl;    //输出</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>ps:因为 <del>本blog猪</del> 的代码仍未调试正确，本代码来自:<a href="https://www.luogu.org/blog/gzhqyx/nba-zong-guan-jun" target="_blank" rel="noopener">https://www.luogu.org/blog/gzhqyx/nba-zong-guan-jun</a></p>
+<p><del>blog猪</del> 的代码本地CCR是正确的，在 Linux 的评测机上却错了，据说是因为回车上的玄学问题……</p>
+<hr>
+<h5 id="T2-骑马修栅栏"><a href="#T2-骑马修栅栏" class="headerlink" title="T2 骑马修栅栏"></a>T2 骑马修栅栏</h5><p>吃了没文化的亏，一直以为是连通块的问题，打了个暴搜，最后老师讲评才知道是一道欧拉环的问题。判断每个点的入度是不是都为偶数，如果是输出”Can be achieve”,否则记录点，输出”Can not be achieve”.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">#define re register int</span><br><span class="line">using namespace std;</span><br><span class="line">int s[539],n,a,b,x[4],y=1;</span><br><span class="line">int main()&#123;</span><br><span class="line">    scanf(&quot;%d&quot;,&amp;n);</span><br><span class="line">    for(re i=1;i&lt;=n;i++)&#123;</span><br><span class="line">        scanf(&quot;%d%d&quot;,&amp;a,&amp;b);s[a]++,s[b]++;   //记录入度</span><br><span class="line">    &#125;</span><br><span class="line">    for(re i=1;i&lt;=530;i++)&#123;</span><br><span class="line">        if(s[i]%2)x[y++]=i;   //如果入度为奇数，则记录</span><br><span class="line">    &#125;</span><br><span class="line">    if(x[1])&#123;     //如果x[1]被记录过</span><br><span class="line">        printf(&quot;Can not be achieve\n&quot;);   //输出</span><br><span class="line">        printf(&quot;%d %d&quot;,x[1],x[2]);    //输出</span><br><span class="line">    &#125;</span><br><span class="line">    else printf(&quot;Can be achieve&quot;);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h5 id="T3-传话"><a href="#T3-传话" class="headerlink" title="T3 传话"></a>T3 传话</h5><h2 id="一道图论题-我考试的时候打了个假的图论-邻接矩阵-，n4的复杂度……思路很乱。正解的话应该是用邻接表，枚举时仅用n的复杂度就行，搜索的话看优化，最多可以到m的复杂度，所以最后复杂度是O-nm"><a href="#一道图论题-我考试的时候打了个假的图论-邻接矩阵-，n4的复杂度……思路很乱。正解的话应该是用邻接表，枚举时仅用n的复杂度就行，搜索的话看优化，最多可以到m的复杂度，所以最后复杂度是O-nm" class="headerlink" title="一道图论题,我考试的时候打了个假的图论(邻接矩阵)，n4的复杂度……思路很乱。正解的话应该是用邻接表，枚举时仅用n的复杂度就行，搜索的话看优化，最多可以到m的复杂度，所以最后复杂度是O(nm)"></a>一道<strong>图论题</strong>,我考试的时候打了个假的图论(邻接矩阵)，n4的复杂度……<del>思路很乱</del>。正解的话应该是用邻接表，枚举时仅用n的复杂度就行，搜索的话看优化，最多可以到m的复杂度，所以最后复杂度是O(nm)</h2><h5 id="T4-硬币"><a href="#T4-硬币" class="headerlink" title="T4 硬币"></a>T4 硬币</h5><p>一道完全背包+拆分。因为考虑到数字的浮动性，所以我们可以把硬币的重量拆分出来，例:5 40 41可拆分成5 40和5 41;</p>
+
+        </div>
+
+        
+
+        
+
+
+        
+
+    </article>
+    
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>jfy &copy; 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: , REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":150,"height":400},"mobile":{"show":false},"log":false});</script></body>
+</html>
