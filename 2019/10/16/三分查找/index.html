@@ -14,25 +14,27 @@
     
     
     
-    <title>暑假集训总结 | jfyの博客 | Don&#39;t cry because it&#39;s over,smile because it happened</title>
+    <title>三分查找 | jfyの博客 | Don&#39;t cry because it&#39;s over,smile because it happened</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
-    <meta name="keywords" content="随笔,集训">
-    <meta name="description" content="em,暑假集训转眼就要过去了，虽说这段时间状态有所下滑，但也学到了不少新的知识：">
-<meta name="keywords" content="随笔,集训">
+    <meta name="keywords" content="算法">
+    <meta name="description" content="三分查找 三分查找用于求单峰函数的极值。速度快，但是结果并非准确值。    方法首先，在函数上标4个点：x=le,rt,mid,mmid。其中mmid是mid与rt的中点。      现在的任务是通过迭代缩小范围：     如果f(mid)&amp;gt;f(mmid)，则mmid一定在峰的右边。     如果f(mid)&amp;lt;f(mmid)，则mid一定在峰的左边。       证明：  我们假设存在">
+<meta name="keywords" content="算法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="暑假集训总结">
-<meta property="og:url" content="http://jfyblog.xyz/2019/08/26/暑假集训总结/index.html">
+<meta property="og:title" content="三分查找">
+<meta property="og:url" content="http://jfyblog.xyz/2019/10/16/三分查找/index.html">
 <meta property="og:site_name" content="jfyの博客">
-<meta property="og:description" content="em,暑假集训转眼就要过去了，虽说这段时间状态有所下滑，但也学到了不少新的知识：">
+<meta property="og:description" content="三分查找 三分查找用于求单峰函数的极值。速度快，但是结果并非准确值。    方法首先，在函数上标4个点：x=le,rt,mid,mmid。其中mmid是mid与rt的中点。      现在的任务是通过迭代缩小范围：     如果f(mid)&amp;gt;f(mmid)，则mmid一定在峰的右边。     如果f(mid)&amp;lt;f(mmid)，则mid一定在峰的左边。       证明：  我们假设存在">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-13T01:33:55.623Z">
+<meta property="og:image" content="https://i4.buimg.com/567571/17945c49e5d712d3.png">
+<meta property="og:updated_time" content="2019-10-16T15:05:59.112Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="暑假集训总结">
-<meta name="twitter:description" content="em,暑假集训转眼就要过去了，虽说这段时间状态有所下滑，但也学到了不少新的知识：">
+<meta name="twitter:title" content="三分查找">
+<meta name="twitter:description" content="三分查找 三分查找用于求单峰函数的极值。速度快，但是结果并非准确值。    方法首先，在函数上标4个点：x=le,rt,mid,mmid。其中mmid是mid与rt的中点。      现在的任务是通过迭代缩小范围：     如果f(mid)&amp;gt;f(mmid)，则mmid一定在峰的右边。     如果f(mid)&amp;lt;f(mmid)，则mid一定在峰的左边。       证明：  我们假设存在">
+<meta name="twitter:image" content="https://i4.buimg.com/567571/17945c49e5d712d3.png">
     
         <link rel="alternate" type="application/atom+xml" title="jfyの博客" href="/atom.xml">
     
@@ -179,7 +181,7 @@
               </a>
             </li>
         
-            <li class="waves-block waves-effect active">
+            <li class="waves-block waves-effect">
               <a href="/2019/08/26/暑假集训总结/"  >
                 <i class="icon icon-lg icon-f14"></i>
                 暑假集训总结
@@ -204,7 +206,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">暑假集训总结</div>
+        <div class="flex-col header-title ellipsis">三分查找</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -226,11 +228,11 @@
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">暑假集训总结</h1>
+        <h1 class="title">三分查找</h1>
         <h5 class="subtitle">
             
-                <time datetime="2019-08-25T16:00:00.000Z" itemprop="datePublished" class="page-time">
-  2019-08-26
+                <time datetime="2019-10-15T16:00:00.000Z" itemprop="datePublished" class="page-time">
+  2019-10-16
 </time>
 
 
@@ -246,14 +248,21 @@
 
 <div class="container body-wrap">
     
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#三分查找"><span class="post-toc-number">1.</span> <span class="post-toc-text">三分查找</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#方法"><span class="post-toc-number">2.</span> <span class="post-toc-text">方法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#食用姿势"><span class="post-toc-number">3.</span> <span class="post-toc-text">食用姿势</span></a></li></ol>
+        </nav>
+    </aside>
 
-<article id="post-暑假集训总结"
+
+<article id="post-三分查找"
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">暑假集训总结</h1>
+        <h1 class="post-card-title">三分查找</h1>
         <div class="post-meta">
-            <time class="post-time" title="2019-08-26 00:00:00" datetime="2019-08-25T16:00:00.000Z"  itemprop="datePublished">2019-08-26</time>
+            <time class="post-time" title="2019-10-16 00:00:00" datetime="2019-10-15T16:00:00.000Z"  itemprop="datePublished">2019-10-16</time>
 
             
 
@@ -266,19 +275,28 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <p>em,暑假集训转眼就要过去了，虽说这段时间状态有所下滑，但也学到了不少新的知识：</p>
-<a id="more"></a>
+            <h2 id="三分查找"><a href="#三分查找" class="headerlink" title="三分查找"></a>三分查找</h2><blockquote>
+<p>三分查找用于求单峰函数的极值。<br>速度快，但是结果并非准确值。  </p>
+</blockquote>
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><p>首先，在函数上标<strong>4个</strong>点：x=le,rt,mid,mmid。其中mmid是mid与rt的中点。  </p>
+<p><img src="https://i4.buimg.com/567571/17945c49e5d712d3.png" alt="选点">  </p>
+<p>现在的任务是通过<code>迭代</code>缩小范围：  </p>
+<blockquote>
+<ol>
+<li>如果f(mid)&gt;f(mmid)，则mmid一定在峰的右边。    </li>
+<li>如果f(mid)&lt;f(mmid)，则mid一定在峰的左边。    </li>
+</ol>
+</blockquote>
+<p>证明：</p>
+<ol>
+<li>我们假设存在f(mid)&gt;f(mmid)且mmid在峰的左边。<br>由于f(x)在峰的左边单调递增，且f(mid)&gt;f(mmid)，所以mid在mmid的<strong>右边</strong>。<br>然而mmid = \frac{mid+rt}{2}，显然mid在mmid<strong>左边</strong>。矛盾。  <br></li>
+<li>我们假设存在f(mid)&lt;f(mmid)且mid在峰的右边。<br>由于f(x)在峰的右边单调递减，且f(mid)&lt;f(mmid)，所以mid在mmid的<strong>右边</strong>。<br>然而mmid = \frac{mid+rt}{2}，显然mid在mmid<strong>左边</strong>。矛盾。  </li>
+</ol>
+<h2 id="食用姿势"><a href="#食用姿势" class="headerlink" title="食用姿势"></a>食用姿势</h2><p>首先我们要证明，需要三分的函数是个<strong>单峰函数</strong>。<br>然后就可以写三分了。</p>
+<p><strong>如何控制精度？</strong><br>两种办法。一种是<code>控制迭代次数</code>，一种是<code>直接控制精度</code>。</p>
+<p><code>控制迭代次数</code>：设一个 lambda 值，迭代了这么多次之后就退出。<br><code>直接控制精度</code>：设一个精度限制 eps ，如果 rt-le &lt; eps 就退出。  </p>
+<p>具体用哪种方式<strong>由题目决定</strong>。<br>一般来说，如果题目要求控制<em>相对精度</em>，控制迭代次数比较好；如果题目要求控制<em>绝对精度</em>，直接去控制精确到小数点后多少位比较好。  </p>
 
-<p>1.初赛的相关知识(电脑常识，反码补码，<del>CCF赞歌</del>)</p>
-<p>2.部分模板(排序，数论，快速幂)</p>
-<p>3.考试的一些经验，心态，以及各种骗分，优化</p>
-<p>在本次集训中，也发现了自己<strong>很多的不足</strong>:</p>
-<p>1.考试的时候像在做梦，考差之后才会认真做题。</p>
-<p>2.心浮气躁，每道题的特殊数据点总是会没有想到，导致第一题和第二题都有大量失分的情况</p>
-<p>3.思维有些固定化，每道题基本上都是一个个板子打出来的</p>
-<p>…….</p>
-<p>总之，还有诸多的不足，希望自己在剩下的十天能加以改进，以备下一次集训时能向前冲！</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">while(day++)&#123;</span><br><span class="line">  	hard++;</span><br><span class="line">	scoure++;</span><br><span class="line">	NOIP++;</span><br><span class="line">  	if(scoure&gt;300)printf(&quot;省一！&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
         </div>
 
         <blockquote class="post-copyright">
@@ -286,7 +304,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-10-13T01:33:55.623Z" itemprop="dateUpdated">2019-10-13 09:33:55</time>
+    最后更新时间：<time datetime="2019-10-16T15:05:59.112Z" itemprop="dateUpdated">2019-10-16 23:05:59</time>
 </span><br>
 
 
@@ -312,7 +330,7 @@
 
         <div class="post-footer">
             
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/随笔/">随笔</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/集训/">集训</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
 
 
             
@@ -322,7 +340,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://jfyblog.xyz/2019/08/26/暑假集训总结/&title=《暑假集训总结》 — jfyの博客&pic=http://jfyblog.xyz/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://jfyblog.xyz/2019/10/16/三分查找/&title=《三分查找》 — jfyの博客&pic=http://jfyblog.xyz/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -332,22 +350,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://jfyblog.xyz/2019/08/26/暑假集训总结/&title=《暑假集训总结》 — jfyの博客&source=em,暑假集训转眼就要过去了，虽说这段时间状态有所下滑，但也学到了不少新的知识：" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://jfyblog.xyz/2019/10/16/三分查找/&title=《三分查找》 — jfyの博客&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://jfyblog.xyz/2019/08/26/暑假集训总结/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://jfyblog.xyz/2019/10/16/三分查找/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《暑假集训总结》 — jfyの博客&url=http://jfyblog.xyz/2019/08/26/暑假集训总结/&via=http://jfyblog.xyz" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《三分查找》 — jfyの博客&url=http://jfyblog.xyz/2019/10/16/三分查找/&via=http://jfyblog.xyz" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://jfyblog.xyz/2019/08/26/暑假集训总结/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://jfyblog.xyz/2019/10/16/三分查找/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -370,18 +388,18 @@
 <nav class="post-nav flex-row flex-justify-between">
   
     <div class="waves-block waves-effect prev">
-      <a href="/2019/08/27/本blog的食用说明/" id="post-prev" class="post-nav-link">
+      <a href="/2019/10/16/近似算法/" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">本blog的食用说明</h4>
+        <h4 class="title">近似算法</h4>
       </a>
     </div>
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2019/08/24/blog备忘录/" id="post-next" class="post-nav-link">
+      <a href="/2019/10/13/长征/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">备忘录</h4>
+        <h4 class="title">长征探究</h4>
       </a>
     </div>
   
@@ -481,7 +499,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://jfyblog.xyz/2019/08/26/暑假集训总结/&title=《暑假集训总结》 — jfyの博客&pic=http://jfyblog.xyz/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://jfyblog.xyz/2019/10/16/三分查找/&title=《三分查找》 — jfyの博客&pic=http://jfyblog.xyz/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -491,22 +509,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://jfyblog.xyz/2019/08/26/暑假集训总结/&title=《暑假集训总结》 — jfyの博客&source=em,暑假集训转眼就要过去了，虽说这段时间状态有所下滑，但也学到了不少新的知识：" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://jfyblog.xyz/2019/10/16/三分查找/&title=《三分查找》 — jfyの博客&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://jfyblog.xyz/2019/08/26/暑假集训总结/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://jfyblog.xyz/2019/10/16/三分查找/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《暑假集训总结》 — jfyの博客&url=http://jfyblog.xyz/2019/08/26/暑假集训总结/&via=http://jfyblog.xyz" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《三分查找》 — jfyの博客&url=http://jfyblog.xyz/2019/10/16/三分查找/&via=http://jfyblog.xyz" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://jfyblog.xyz/2019/08/26/暑假集训总结/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://jfyblog.xyz/2019/10/16/三分查找/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -517,7 +535,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://jfyblog.xyz/2019/08/26/暑假集训总结/" alt="微信分享二维码">
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://jfyblog.xyz/2019/10/16/三分查找/" alt="微信分享二维码">
 </div>
 
 

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jfyblog.xyz/"/>
-  <updated>2019-10-16T14:51:16.634Z</updated>
+  <updated>2019-10-16T15:09:36.444Z</updated>
   <id>http://jfyblog.xyz/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
+    <title>近似算法</title>
     <link href="http://jfyblog.xyz/2019/10/16/%E8%BF%91%E4%BC%BC%E7%AE%97%E6%B3%95/"/>
     <id>http://jfyblog.xyz/2019/10/16/近似算法/</id>
     <published>2019-10-15T16:00:00.000Z</published>
-    <updated>2019-10-16T14:51:16.634Z</updated>
+    <updated>2019-10-16T15:09:36.444Z</updated>
     
     <content type="html"><![CDATA[<h1 id="近似算法"><a href="#近似算法" class="headerlink" title="近似算法"></a>近似算法</h1><blockquote><p>一万年没更新博客了……毕竟我这么弱。<br>来玩一玩模拟退火算法和遗传算法。</p></blockquote><p>我们的问题是，给定一个乱七八糟的函数，求它在某个区域内的最大值。</p><h2 id="模拟退火算法"><a href="#模拟退火算法" class="headerlink" title="模拟退火算法"></a>模拟退火算法</h2><h3 id="爬山"><a href="#爬山" class="headerlink" title="爬山"></a>爬山</h3><p>爬山算法是纯粹的贪心算法。给定一个起始点，我们能爬到一个极大值。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">while(1)</span><br><span class="line">&#123;</span><br><span class="line">    if(f(x+0.001) - f(x-0.001) &gt; eps)  x+=0.001;         </span><br><span class="line">    //如果向右走有利，则向右走</span><br><span class="line">    else if(f(x+0.001) - f(x-0.001) &lt; -eps) x+=0.001;</span><br><span class="line">    //如果向左走有利，则向左走</span><br><span class="line"></span><br><span class="line">    else goto finish;       //已经爬到极大值</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>爬山的缺陷在于，它会陷入局部最优解，而难以爬到全局最优解。例如下图。 <figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="http://i1.piimg.com/567571/42e0f0a7fea0b290.png" alt="爬山" title>                </div>                <div class="image-caption">爬山</div>            </figure></p><p>我们把上面的<code>x+0.001</code>之类的操作称作“移动”。</p><h3 id="经典模拟退火"><a href="#经典模拟退火" class="headerlink" title="经典模拟退火"></a>经典模拟退火</h3><p>模拟退火的思想在于，如果一个移动会<strong>使答案变得更优</strong>，我们就接受这个移动；否则我们以<strong>一定的概率</strong>接受这个移动。</p><p>听起来很玄学。根据物理的那套理论，我们定义两个东西：<br>- 温度(T)(T)。它随着时间推移而逐渐降低。<br>- 增量(E)(E)。它描述一次移动获得的好处。从xx移动到x′x′的增量定义为f(x′)−f(x)f(x′)−f(x)，增量越大，往x′x′移动的优势越大。</p><p>在模拟退火中，如果增量大于00，则直接接受这次移动；否则按下面的概率接受移动：</p><p>P=exp(ET)P=exp⁡(ET)</p><p>听起来十分的玄学。然而它竟然可以得出精度比较好的解。伪代码如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">T=100.0;               //初始温度</span><br><span class="line"></span><br><span class="line">for(int i=0;i&lt;100;i++)      //控制迭代次数</span><br><span class="line">&#123;</span><br><span class="line">    tar=getPos();           //在x的周围选一个点</span><br><span class="line">    E=f(tar)-f(x);</span><br><span class="line"></span><br><span class="line">    if(E &gt; eps) x=tar;      //直接移动</span><br><span class="line">    else if(exp(E/T) &gt; random(0,1)) x=tar;     //接受移动</span><br><span class="line"></span><br><span class="line">    T=T*0.99;               //降温</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="遗传算法"><a href="#遗传算法" class="headerlink" title="遗传算法"></a>遗传算法</h2><p>不妨假设有一大群兔子，它们均匀地分布在各种地方。<br>由于一些黑恶势力的影响，每年只有位置最高的那100只兔子能活下来。</p><p>位置最高的那些兔子们繁衍生息，它们的后代有些比它们站得高，于是这些后代活了下来；其他后代被黑恶势力搞死了。每年都只有站得最高的100只兔子能活下来。</p><p>在无尽的岁月后，这100只兔子想必都站在了世界上最高的山峰。</p><p>这个算法听起来比模拟退火靠谱。现在它的实现过程如下：</p><ol><li>先随机产生100个点，均匀地分布在所求区间上。</li><li>取每两个点的中位数，这样我们共获得了10000个点。</li><li>取出最高的100个点，然后开始新一轮迭代。</li></ol><p>但是这会引发一个问题。例如下图：</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="http://i1.piimg.com/567571/0d87fe3e1bcc6437.png" alt="问题" title>                </div>                <div class="image-caption">问题</div>            </figure><p>这样的话，无论我们迭代多少次，总是找不到最高点（因为是取中位数）。这搞屁。</p><p>所以我们引入<strong>变异</strong>。每个数都有二进制表示，我们产生一个数之后，对它进行变异操作：二进制的每一位都以pp的概率翻转。</p><p>这样的话，由于变异的存在，迭代若干次之后，最高点是找得到的。</p><p>那么问题来了。<strong>pp到底取多少？</strong></p><p>恭喜您打开了黑暗世界的大门——玄学调参数。由于我们很难给出一个很妙的pp，遗传算法变得比模拟退火还不靠谱。</p><p>如何玄学调参数呢？我们造一些区间比较小的数据，暴力求出答案，然后根据这些数据来调整pp。猜很多个pp的值，看哪个最好。我们只需要考虑p&lt;0.5p&lt;0.5的情况，因为<code>以p的概率翻转</code>，和<code>以p的概率不翻转</code>是本质相同的。</p>]]></content>
     
@@ -32,6 +32,32 @@
         &lt;h1 id=&quot;近似算法&quot;&gt;&lt;a href=&quot;#近似算法&quot; class=&quot;headerlink&quot; title=&quot;近似算法&quot;&gt;&lt;/a&gt;近似算法&lt;/h1&gt;&lt;blockquote&gt;
 &lt;p&gt;一万年没更新博客了……毕竟我这么弱。&lt;br&gt;来玩一玩模拟退火算法和遗传算法。&lt;/p&gt;
 &lt;/bloc
+      
+    
+    </summary>
+    
+    
+    
+      <category term="算法" scheme="http://jfyblog.xyz/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>三分查找</title>
+    <link href="http://jfyblog.xyz/2019/10/16/%E4%B8%89%E5%88%86%E6%9F%A5%E6%89%BE/"/>
+    <id>http://jfyblog.xyz/2019/10/16/三分查找/</id>
+    <published>2019-10-15T16:00:00.000Z</published>
+    <updated>2019-10-16T15:05:59.112Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="三分查找"><a href="#三分查找" class="headerlink" title="三分查找"></a>三分查找</h2><blockquote><p>三分查找用于求单峰函数的极值。<br>速度快，但是结果并非准确值。  </p></blockquote><h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><p>首先，在函数上标<strong>4个</strong>点：x=le,rt,mid,mmid。其中mmid是mid与rt的中点。  </p><p><img src="https://i4.buimg.com/567571/17945c49e5d712d3.png" alt="选点">  </p><p>现在的任务是通过<code>迭代</code>缩小范围：  </p><blockquote><ol><li>如果f(mid)&gt;f(mmid)，则mmid一定在峰的右边。    </li><li>如果f(mid)&lt;f(mmid)，则mid一定在峰的左边。    </li></ol></blockquote><p>证明：</p><ol><li>我们假设存在f(mid)&gt;f(mmid)且mmid在峰的左边。<br>由于f(x)在峰的左边单调递增，且f(mid)&gt;f(mmid)，所以mid在mmid的<strong>右边</strong>。<br>然而mmid = \frac{mid+rt}{2}，显然mid在mmid<strong>左边</strong>。矛盾。  <br></li><li>我们假设存在f(mid)&lt;f(mmid)且mid在峰的右边。<br>由于f(x)在峰的右边单调递减，且f(mid)&lt;f(mmid)，所以mid在mmid的<strong>右边</strong>。<br>然而mmid = \frac{mid+rt}{2}，显然mid在mmid<strong>左边</strong>。矛盾。  </li></ol><h2 id="食用姿势"><a href="#食用姿势" class="headerlink" title="食用姿势"></a>食用姿势</h2><p>首先我们要证明，需要三分的函数是个<strong>单峰函数</strong>。<br>然后就可以写三分了。</p><p><strong>如何控制精度？</strong><br>两种办法。一种是<code>控制迭代次数</code>，一种是<code>直接控制精度</code>。</p><p><code>控制迭代次数</code>：设一个 lambda 值，迭代了这么多次之后就退出。<br><code>直接控制精度</code>：设一个精度限制 eps ，如果 rt-le &lt; eps 就退出。  </p><p>具体用哪种方式<strong>由题目决定</strong>。<br>一般来说，如果题目要求控制<em>相对精度</em>，控制迭代次数比较好；如果题目要求控制<em>绝对精度</em>，直接去控制精确到小数点后多少位比较好。  </p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;三分查找&quot;&gt;&lt;a href=&quot;#三分查找&quot; class=&quot;headerlink&quot; title=&quot;三分查找&quot;&gt;&lt;/a&gt;三分查找&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;三分查找用于求单峰函数的极值。&lt;br&gt;速度快，但是结果并非准确值。  &lt;/p&gt;
+&lt;/blockqu
       
     
     </summary>
@@ -191,9 +217,9 @@
     
     
     
-      <category term="动态规划" scheme="http://jfyblog.xyz/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
-    
       <category term="算法" scheme="http://jfyblog.xyz/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="动态规划" scheme="http://jfyblog.xyz/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
     
   </entry>
   
