@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jfyblog.xyz/"/>
-  <updated>2019-10-13T04:07:41.783Z</updated>
+  <updated>2019-10-16T14:51:16.634Z</updated>
   <id>http://jfyblog.xyz/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="http://jfyblog.xyz/2019/10/16/%E8%BF%91%E4%BC%BC%E7%AE%97%E6%B3%95/"/>
+    <id>http://jfyblog.xyz/2019/10/16/近似算法/</id>
+    <published>2019-10-15T16:00:00.000Z</published>
+    <updated>2019-10-16T14:51:16.634Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="近似算法"><a href="#近似算法" class="headerlink" title="近似算法"></a>近似算法</h1><blockquote><p>一万年没更新博客了……毕竟我这么弱。<br>来玩一玩模拟退火算法和遗传算法。</p></blockquote><p>我们的问题是，给定一个乱七八糟的函数，求它在某个区域内的最大值。</p><h2 id="模拟退火算法"><a href="#模拟退火算法" class="headerlink" title="模拟退火算法"></a>模拟退火算法</h2><h3 id="爬山"><a href="#爬山" class="headerlink" title="爬山"></a>爬山</h3><p>爬山算法是纯粹的贪心算法。给定一个起始点，我们能爬到一个极大值。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">while(1)</span><br><span class="line">&#123;</span><br><span class="line">    if(f(x+0.001) - f(x-0.001) &gt; eps)  x+=0.001;         </span><br><span class="line">    //如果向右走有利，则向右走</span><br><span class="line">    else if(f(x+0.001) - f(x-0.001) &lt; -eps) x+=0.001;</span><br><span class="line">    //如果向左走有利，则向左走</span><br><span class="line"></span><br><span class="line">    else goto finish;       //已经爬到极大值</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>爬山的缺陷在于，它会陷入局部最优解，而难以爬到全局最优解。例如下图。 <figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="http://i1.piimg.com/567571/42e0f0a7fea0b290.png" alt="爬山" title>                </div>                <div class="image-caption">爬山</div>            </figure></p><p>我们把上面的<code>x+0.001</code>之类的操作称作“移动”。</p><h3 id="经典模拟退火"><a href="#经典模拟退火" class="headerlink" title="经典模拟退火"></a>经典模拟退火</h3><p>模拟退火的思想在于，如果一个移动会<strong>使答案变得更优</strong>，我们就接受这个移动；否则我们以<strong>一定的概率</strong>接受这个移动。</p><p>听起来很玄学。根据物理的那套理论，我们定义两个东西：<br>- 温度(T)(T)。它随着时间推移而逐渐降低。<br>- 增量(E)(E)。它描述一次移动获得的好处。从xx移动到x′x′的增量定义为f(x′)−f(x)f(x′)−f(x)，增量越大，往x′x′移动的优势越大。</p><p>在模拟退火中，如果增量大于00，则直接接受这次移动；否则按下面的概率接受移动：</p><p>P=exp(ET)P=exp⁡(ET)</p><p>听起来十分的玄学。然而它竟然可以得出精度比较好的解。伪代码如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">T=100.0;               //初始温度</span><br><span class="line"></span><br><span class="line">for(int i=0;i&lt;100;i++)      //控制迭代次数</span><br><span class="line">&#123;</span><br><span class="line">    tar=getPos();           //在x的周围选一个点</span><br><span class="line">    E=f(tar)-f(x);</span><br><span class="line"></span><br><span class="line">    if(E &gt; eps) x=tar;      //直接移动</span><br><span class="line">    else if(exp(E/T) &gt; random(0,1)) x=tar;     //接受移动</span><br><span class="line"></span><br><span class="line">    T=T*0.99;               //降温</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="遗传算法"><a href="#遗传算法" class="headerlink" title="遗传算法"></a>遗传算法</h2><p>不妨假设有一大群兔子，它们均匀地分布在各种地方。<br>由于一些黑恶势力的影响，每年只有位置最高的那100只兔子能活下来。</p><p>位置最高的那些兔子们繁衍生息，它们的后代有些比它们站得高，于是这些后代活了下来；其他后代被黑恶势力搞死了。每年都只有站得最高的100只兔子能活下来。</p><p>在无尽的岁月后，这100只兔子想必都站在了世界上最高的山峰。</p><p>这个算法听起来比模拟退火靠谱。现在它的实现过程如下：</p><ol><li>先随机产生100个点，均匀地分布在所求区间上。</li><li>取每两个点的中位数，这样我们共获得了10000个点。</li><li>取出最高的100个点，然后开始新一轮迭代。</li></ol><p>但是这会引发一个问题。例如下图：</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="http://i1.piimg.com/567571/0d87fe3e1bcc6437.png" alt="问题" title>                </div>                <div class="image-caption">问题</div>            </figure><p>这样的话，无论我们迭代多少次，总是找不到最高点（因为是取中位数）。这搞屁。</p><p>所以我们引入<strong>变异</strong>。每个数都有二进制表示，我们产生一个数之后，对它进行变异操作：二进制的每一位都以pp的概率翻转。</p><p>这样的话，由于变异的存在，迭代若干次之后，最高点是找得到的。</p><p>那么问题来了。<strong>pp到底取多少？</strong></p><p>恭喜您打开了黑暗世界的大门——玄学调参数。由于我们很难给出一个很妙的pp，遗传算法变得比模拟退火还不靠谱。</p><p>如何玄学调参数呢？我们造一些区间比较小的数据，暴力求出答案，然后根据这些数据来调整pp。猜很多个pp的值，看哪个最好。我们只需要考虑p&lt;0.5p&lt;0.5的情况，因为<code>以p的概率翻转</code>，和<code>以p的概率不翻转</code>是本质相同的。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;近似算法&quot;&gt;&lt;a href=&quot;#近似算法&quot; class=&quot;headerlink&quot; title=&quot;近似算法&quot;&gt;&lt;/a&gt;近似算法&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;一万年没更新博客了……毕竟我这么弱。&lt;br&gt;来玩一玩模拟退火算法和遗传算法。&lt;/p&gt;
+&lt;/bloc
+      
+    
+    </summary>
+    
+    
+    
+      <category term="算法" scheme="http://jfyblog.xyz/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
   
   <entry>
     <title>长征探究</title>
@@ -100,9 +126,9 @@
     
     
     
-      <category term="题解" scheme="http://jfyblog.xyz/tags/%E9%A2%98%E8%A7%A3/"/>
-    
       <category term="考试" scheme="http://jfyblog.xyz/tags/%E8%80%83%E8%AF%95/"/>
+    
+      <category term="题解" scheme="http://jfyblog.xyz/tags/%E9%A2%98%E8%A7%A3/"/>
     
   </entry>
   
@@ -153,7 +179,7 @@
     <link href="http://jfyblog.xyz/2019/09/05/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
     <id>http://jfyblog.xyz/2019/09/05/动态规划/</id>
     <published>2019-09-04T16:00:00.000Z</published>
-    <updated>2019-10-06T03:39:15.735Z</updated>
+    <updated>2019-10-16T14:50:34.954Z</updated>
     
     <content type="html"><![CDATA[<p>从<strong>取硬币</strong>开始谈起：</p><a id="more"></a><p>假设您是个土豪，身上带了足够的1，5，10，20，50，100元面值的钞票。现在您的目标是凑出某个金额 w ，需要用到尽量少的钞票。</p><p>显然我们可以用<strong>“贪心”</strong>的策略来解决这个问题：能用100就尽量用100，否则用50，以此类推。</p><p>贪心策略会尽快让  <strong>w</strong>  变得更小。能让 <strong>w</strong> 少100就尽量让它少100，这样我们接下来面对的局面就是凑出 <strong>w-100</strong>。长期的生活经验表明，贪心策略是正确的。但是，如果我们换一组钞票的面值，贪心策略就也许不成立了。如果一个<strong>奇葩国家</strong>的钞票面额分别是</p><p>1、5、11,那么我们在凑出15的时候，贪心策略会出错： </p><p>15=1×11+4×1 （贪心策略使用了5张钞票） 15=3×5 </p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">（正确的策略，只用3张钞票）</span><br></pre></td></tr></table></figure><p>为什么会这样呢？贪心策略错在了哪里？</p><p><strong>鼠目寸光.</strong></p><p>贪心是一种<strong>只考虑眼前情况</strong>的策略</p><h2 id="动态转移方程"><a href="#动态转移方程" class="headerlink" title="动态转移方程"></a>动态转移方程</h2><p>重新分析刚刚的例子。w=15时，我们如果取11，接下来就面对w=4的情况；如果取5，则接下来面对</p><p>w=10的情况。我们发现这些问题都有相同的形式：“给定<strong>w</strong>，凑出<strong>w</strong>所用的最少钞票是多少张？”</p><p>接下来，我们用</p><p>f(n)来表示“凑出n所需的最少钞票数量”。</p><p>那么，如果我们取了11，最后的代价（用掉的钞票总数）是多少呢？ 明显cost  = f(4)+1 = 4+1 =  5,它的意义是：利用11来凑出15，付出的代价等于f(4)加上自己这一张钞票。现在我们暂时不管f(4)怎么求出来。  依次类推，马上可以知道：如果我们用5来凑出15，cost就是<strong>f(10)+1 = 2+1 = 3</strong></p><p>那么，现在w=15的时候，我们该取那种钞票呢？当然是各种方案中，<strong>cost</strong>值最低的那一个！</p><p>取11：<figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://img2018.cnblogs.com/blog/1648105/201905/1648105-20190518211825454-1540987748.png" alt="img" title>                </div>                <div class="image-caption">img</div>            </figure></p><p>取5：<figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://img2018.cnblogs.com/blog/1648105/201905/1648105-20190518211831591-1589645221.png" alt="img" title>                </div>                <div class="image-caption">img</div>            </figure></p><p>取1：<figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://img2018.cnblogs.com/blog/1648105/201905/1648105-20190518211838441-1041229314.png" alt="img" title>                </div>                <div class="image-caption">img</div>            </figure></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">显而易见，cost值最低的是取5的方案。我们通过上面三个式子，做出了正确的决策！</span><br></pre></td></tr></table></figure><p>这给了我们一个至关重要的启示—— <figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://img2018.cnblogs.com/blog/1648105/201905/1648105-20190518212032951-2054044526.png" alt="img" title>                </div>                <div class="image-caption">img</div>            </figure><br>相关；</p><p>更确切地说：<figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://img2018.cnblogs.com/blog/1648105/201905/1648105-20190518212043053-647523586.png" alt="img" title>                </div>                <div class="image-caption">img</div>            </figure></p><p>这个式子是非常激动人心的。这个式子也就是所谓的动态规划的<strong>状态转移方程</strong>，我们要求出f(n)，只需要求出几个更小的f值；既然如此，我们从小到大把所有的 <strong>f(i)</strong> 求出来不就好了？</p><p>我们以 <strong>O(n)</strong> 的复杂度解决了这个问题。现在回过头来，我们看看它的原理：</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://img2018.cnblogs.com/blog/1648105/201905/1648105-20190518212048218-1069822706.png" alt="img" title>                </div>                <div class="image-caption">img</div>            </figure><p>这两个事实，保证了我们做法的正确性。它比起贪心策略，会分别算出取1、5、11的代价，从而做出一个正确决策，这样就避免掉了<strong>“鼠目寸光”！</strong><br>它与暴力的区别在哪里？我们的暴力枚举了“使用的硬币”，然而这属于冗余信息。我们要的是答案，根本不关心这个答案是怎么凑出来的。譬如，要求出f(15)，只需要知道f(14),f(10),f(4)的值。其他信息并不需要。我们舍弃了冗余信息。我们只记录了对解决问题有帮助的信息——f(n).我们能这样干，取决于问题的性质：求出f(n)，只需要知道几个更小的f(c)。我们将求解f(c)称作求解f(n)的“子问题”。</p><p>这就是<strong>DP</strong>（动态规划，dynamic programming）</p><p>将一个问题拆成几个子问题，分别求解这些子问题，即可推断出大问题的解。</p><p>思考题：请稍微修改代码，输出我们凑出w的方案。  </p><h3 id="几个简单原则"><a href="#几个简单原则" class="headerlink" title="几个简单原则"></a>几个简单原则</h3><p>【无后效性】</p><p>一旦f(n)确定，“我们如何凑出f(n)”就<strong>再也用不着了</strong>。要求出f(15)，只需要知道f(14),f(10),f(4)的值，而</p><p>f(14),f(10),f(4)是如何算出来的，对之后的问题没有影响。</p><p>“未来与过去无关”，这就是<strong>无后效性</strong>.<br>（严格定义：如果给定某一阶段的状态，则在这一阶段以后过程的发展不受这阶段以前各段状态的影响。）</p><p>【最优子结构】<br>回顾我们对f(n)定义：我们记“凑出n所需的最少钞票数量”为f(n).<br>f(n)的定义就已经蕴含了“最优”。利用w=14,10,4的最优解，我们即可算出w=15的最优解。<br>大问题的最优解可以由小问题的最优解推出，这个性质叫做<strong>“最优子结构性质”</strong>.</p><p>引入这两个概念之后，我们如何判断一个问题能否使用DP解决呢？能将大问题拆成几个小问题，且满足无后效性、最优子结构性质。</p><h3 id="动态规划的解题思路"><a href="#动态规划的解题思路" class="headerlink" title="动态规划的解题思路"></a>动态规划的解题思路</h3><p>【DP的操作过程】<br>一言以蔽之：</p><p>大事化小，小事化了。</p><p>将一个大问题转化成几个小问题；      求解小问题；        推出大问题的解。</p><p>【如何设计DP算法】</p><p>下面介绍比较通用的设计DP算法的步骤。首先，把我们面对的局面表示为x。这一步称为设计状态。 对于状态x，记我们要求出的答案(e.g.  最小费用)为f(x).我们的目标是求出f(T).  找出f(x)与哪些局面有关（记为p），写出一个式子（称为状态转移方程），通过f(p)来推出f(x).</p><p>【DP三连】<br>设计DP算法，往往可以遵循DP三连：</p><p>我是谁？ ——设计状态，表示局面             我从哪里来？      我要到哪里去？ ——设计转移</p><p>设计状态是DP的基础。接下来的设计转移，有两种方式：一种是考虑我从哪里来（本文之前提到的两个例子，都是在考虑”我从哪里来”）；另一种是考虑我到哪里去，这常见于求出f(x)之后，更新能从x走到的一些解。这种DP也是不少的，我们以后会遇到。</p><h3 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h3><p><strong>最长上升子序列（LIS）问题</strong>：</p><p>给定长度为n的序列a，从a中抽取出一个子序列，这个子序列需要单调递增。问最长的上升子序列（</p><p>LIS）的长度。 e.g. 1,5,3,4,6,9,7,8的LIS为1,3,4,6,7,8，长度为6。</p><p>如何设计状态（我是谁）？</p><p>状态x从哪里推过来（我从哪里来）？</p>]]></content>
     
@@ -167,7 +193,7 @@
     
       <category term="动态规划" scheme="http://jfyblog.xyz/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
     
-      <category term="随笔" scheme="http://jfyblog.xyz/tags/%E9%9A%8F%E7%AC%94/"/>
+      <category term="算法" scheme="http://jfyblog.xyz/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
@@ -294,9 +320,9 @@
     
     
     
-      <category term="题解" scheme="http://jfyblog.xyz/tags/%E9%A2%98%E8%A7%A3/"/>
-    
       <category term="考试" scheme="http://jfyblog.xyz/tags/%E8%80%83%E8%AF%95/"/>
+    
+      <category term="题解" scheme="http://jfyblog.xyz/tags/%E9%A2%98%E8%A7%A3/"/>
     
   </entry>
   
@@ -317,9 +343,9 @@
     
     
     
-      <category term="题解" scheme="http://jfyblog.xyz/tags/%E9%A2%98%E8%A7%A3/"/>
-    
       <category term="考试" scheme="http://jfyblog.xyz/tags/%E8%80%83%E8%AF%95/"/>
+    
+      <category term="题解" scheme="http://jfyblog.xyz/tags/%E9%A2%98%E8%A7%A3/"/>
     
   </entry>
   
@@ -340,9 +366,9 @@
     
     
     
-      <category term="题解" scheme="http://jfyblog.xyz/tags/%E9%A2%98%E8%A7%A3/"/>
-    
       <category term="考试" scheme="http://jfyblog.xyz/tags/%E8%80%83%E8%AF%95/"/>
+    
+      <category term="题解" scheme="http://jfyblog.xyz/tags/%E9%A2%98%E8%A7%A3/"/>
     
   </entry>
   
@@ -363,9 +389,9 @@
     
     
     
-      <category term="题解" scheme="http://jfyblog.xyz/tags/%E9%A2%98%E8%A7%A3/"/>
-    
       <category term="考试" scheme="http://jfyblog.xyz/tags/%E8%80%83%E8%AF%95/"/>
+    
+      <category term="题解" scheme="http://jfyblog.xyz/tags/%E9%A2%98%E8%A7%A3/"/>
     
   </entry>
   
@@ -386,9 +412,9 @@
     
     
     
-      <category term="题解" scheme="http://jfyblog.xyz/tags/%E9%A2%98%E8%A7%A3/"/>
-    
       <category term="考试" scheme="http://jfyblog.xyz/tags/%E8%80%83%E8%AF%95/"/>
+    
+      <category term="题解" scheme="http://jfyblog.xyz/tags/%E9%A2%98%E8%A7%A3/"/>
     
   </entry>
   
