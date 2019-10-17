@@ -21,19 +21,19 @@
     
     
     <meta name="keywords" content>
-    <meta name="description" content="近似算法 一万年没更新博客了……毕竟我这么弱。来玩一玩模拟退火算法和遗传算法。  我们的问题是，给定一个乱七八糟的函数，求它在某个区域内的最大值。 模拟退火算法爬山爬山算法是纯粹的贪心算法。给定一个起始点，我们能爬到一个极大值。 123456789while(1)&amp;#123;    if(f(x+0.001) - f(x-0.001) &amp;gt; eps)  x+=0.001;">
+    <meta name="description" content="近似算法 一万年没更新博客了……毕竟我这么弱。来玩一玩模拟退火算法和遗传算法。  我们的问题是，给定一个乱七八糟的函数，求它在某个区域内的最大值。">
 <meta property="og:type" content="website">
 <meta property="og:title" content="jfyの博客">
 <meta property="og:url" content="http://jfyblog.xyz/近似算法/index.html">
 <meta property="og:site_name" content="jfyの博客">
-<meta property="og:description" content="近似算法 一万年没更新博客了……毕竟我这么弱。来玩一玩模拟退火算法和遗传算法。  我们的问题是，给定一个乱七八糟的函数，求它在某个区域内的最大值。 模拟退火算法爬山爬山算法是纯粹的贪心算法。给定一个起始点，我们能爬到一个极大值。 123456789while(1)&amp;#123;    if(f(x+0.001) - f(x-0.001) &amp;gt; eps)  x+=0.001;">
+<meta property="og:description" content="近似算法 一万年没更新博客了……毕竟我这么弱。来玩一玩模拟退火算法和遗传算法。  我们的问题是，给定一个乱七八糟的函数，求它在某个区域内的最大值。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://i1.piimg.com/567571/42e0f0a7fea0b290.png">
 <meta property="og:image" content="http://i1.piimg.com/567571/0d87fe3e1bcc6437.png">
-<meta property="og:updated_time" content="2019-10-16T14:52:08.018Z">
+<meta property="og:updated_time" content="2019-10-17T13:45:22.127Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jfyの博客">
-<meta name="twitter:description" content="近似算法 一万年没更新博客了……毕竟我这么弱。来玩一玩模拟退火算法和遗传算法。  我们的问题是，给定一个乱七八糟的函数，求它在某个区域内的最大值。 模拟退火算法爬山爬山算法是纯粹的贪心算法。给定一个起始点，我们能爬到一个极大值。 123456789while(1)&amp;#123;    if(f(x+0.001) - f(x-0.001) &amp;gt; eps)  x+=0.001;">
+<meta name="twitter:description" content="近似算法 一万年没更新博客了……毕竟我这么弱。来玩一玩模拟退火算法和遗传算法。  我们的问题是，给定一个乱七八糟的函数，求它在某个区域内的最大值。">
 <meta name="twitter:image" content="http://i1.piimg.com/567571/42e0f0a7fea0b290.png">
     
         <link rel="alternate" type="application/atom+xml" title="jfyの博客" href="/atom.xml">
@@ -247,6 +247,8 @@
 <p>一万年没更新博客了……毕竟我这么弱。<br>来玩一玩模拟退火算法和遗传算法。</p>
 </blockquote>
 <p>我们的问题是，给定一个乱七八糟的函数，求它在某个区域内的最大值。</p>
+<a id="more"></a>
+
 <h2 id="模拟退火算法"><a href="#模拟退火算法" class="headerlink" title="模拟退火算法"></a>模拟退火算法</h2><h3 id="爬山"><a href="#爬山" class="headerlink" title="爬山"></a>爬山</h3><p>爬山算法是纯粹的贪心算法。给定一个起始点，我们能爬到一个极大值。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">while(1)</span><br><span class="line">&#123;</span><br><span class="line">    if(f(x+0.001) - f(x-0.001) &gt; eps)  x+=0.001;         </span><br><span class="line">    //如果向右走有利，则向右走</span><br><span class="line">    else if(f(x+0.001) - f(x-0.001) &lt; -eps) x+=0.001;</span><br><span class="line">    //如果向左走有利，则向左走</span><br><span class="line"></span><br><span class="line">    else goto finish;       //已经爬到极大值</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -318,7 +320,10 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://jfyblog.xyz/近似算法/&title=jfyの博客&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://jfyblog.xyz/近似算法/&title=jfyの博客&source=近似算法
+一万年没更新博客了……毕竟我这么弱。来玩一玩模拟退火算法和遗传算法。
+
+我们的问题是，给定一个乱七八糟的函数，求它在某个区域内的最大值。" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -441,7 +446,10 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://jfyblog.xyz/近似算法/&title=jfyの博客&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://jfyblog.xyz/近似算法/&title=jfyの博客&source=近似算法
+一万年没更新博客了……毕竟我这么弱。来玩一玩模拟退火算法和遗传算法。
+
+我们的问题是，给定一个乱七八糟的函数，求它在某个区域内的最大值。" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
