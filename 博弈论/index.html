@@ -14,20 +14,24 @@
     
     
     
-    <title>Archives: 2019 | jfyの博客 | Don&#39;t cry because it&#39;s over,smile because it happened</title>
+    <title>博弈论 | jfyの博客 | Don&#39;t cry because it&#39;s over,smile because it happened</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
     <meta name="keywords" content>
-    <meta property="og:type" content="website">
-<meta property="og:title" content="jfyの博客">
-<meta property="og:url" content="http://jfyblog.xyz/archives/2019/index.html">
+    <meta name="description" content="博弈论一些简单的定义： 必胜点（N点）：走到必胜点的玩家一定胜利。必败点（P点）：走到必败点的玩家一定失败。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="博弈论">
+<meta property="og:url" content="http://jfyblog.xyz/博弈论/index.html">
 <meta property="og:site_name" content="jfyの博客">
+<meta property="og:description" content="博弈论一些简单的定义： 必胜点（N点）：走到必胜点的玩家一定胜利。必败点（P点）：走到必败点的玩家一定失败。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-10-17T15:26:21.818Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="jfyの博客">
+<meta name="twitter:title" content="博弈论">
+<meta name="twitter:description" content="博弈论一些简单的定义： 必胜点（N点）：走到必胜点的玩家一定胜利。必败点（P点）：走到必败点的玩家一定失败。">
     
         <link rel="alternate" type="application/atom+xml" title="jfyの博客" href="/atom.xml">
     
@@ -62,7 +66,7 @@
     <div class="scroll-wrap flex-col">
       <ul class="nav">
         
-            <li class="waves-block waves-effect active">
+            <li class="waves-block waves-effect">
               <a href="/archives"  >
                 <i class="icon icon-lg icon-archives"></i>
                 OI笔记
@@ -111,7 +115,7 @@
               </a>
             </li>
         
-            <li class="waves-block waves-effect">
+            <li class="waves-block waves-effect active">
               <a href="/博弈论"  >
                 <i class="icon icon-lg icon-f17"></i>
                 博弈论
@@ -213,7 +217,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">Archives</div>
+        <div class="flex-col header-title ellipsis">博弈论</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -232,10 +236,10 @@
         
     </div>
 </header>
-<header class="content-header archives-header">
+<header class="content-header page-header">
 
     <div class="container fade-scale">
-        <h1 class="title">Archives</h1>
+        <h1 class="title">博弈论</h1>
         <h5 class="subtitle">
             
         </h5>
@@ -246,340 +250,154 @@
 
 </header>
 
-<div class="container body-wrap fade">
-    
 
-    
+<div class="container body-wrap">
+    <article class="page-article fade" itemprop="blogPage">
+        <div class="post-content page-content" id="page-content" itemprop="pageContent">
+            <h1 id="博弈论"><a href="#博弈论" class="headerlink" title="博弈论"></a>博弈论</h1><p>一些简单的定义：</p>
+<p>必胜点（N点）：走到必胜点的玩家一定胜利。<br>必败点（P点）：走到必败点的玩家一定失败。</p>
+<a id="more"></a>
+
+<blockquote>
+<p>定理1.所有游戏终结的点都是必败点。<br>定理2.所有一步<strong>能</strong>走到必败点的就是必胜点。因为对手将面临必败点。<br>定理3.通过一步操作<strong>只能</strong>到必胜点的就是必败点。因为对手将获得必胜点。  </p>
+</blockquote>
+<h2 id="取石子游戏"><a href="#取石子游戏" class="headerlink" title="取石子游戏"></a>取石子游戏</h2><p>有两堆石子和两个玩家。<br>每回合，玩家可以选择从<strong>某一堆</strong>取走一个石子，或者从<strong>两堆</strong>中都取走一个石子。  </p>
+<p>最后无法操作的玩家失败。</p>
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>以<strong>(A,B)</strong>表示当前的状态：第一堆有<strong>A</strong>个石子，第二堆有<strong>B</strong>个石子。<br>由于这个游戏没有和局，所以<strong>某个状态不是必败点就是必胜点</strong>。</p>
+<p>首先考虑<code>终结点</code>：两堆石子都空了，面对这个状态的玩家必败。<br>于是有了第一个必败点：<strong>(0,0)</strong>。</p>
+<blockquote>
+<p>定理2.所有一步能走到必败点的就是必胜点。因为对手将面临必败点。  </p>
+</blockquote>
+<p>由于<strong>(0,1)</strong>和<strong>(1,0)</strong>能走到<strong>(0,0)</strong>，因此它们是必胜点。</p>
+<blockquote>
+<p>定理3.通过一步操作<strong>只能</strong>到必胜点的就是必败点。因为对手将获得必胜点。  </p>
+</blockquote>
+<p>考虑<strong>(0,1)</strong>，显然<strong>(0,2)</strong>只能走到<strong>(0,1)</strong>，所以<strong>(0,2)</strong>是必败点。由于<strong>(0,3)</strong>能走到<strong>(0,2)</strong>让对手必败，所以<strong>(0,3)</strong>是必胜点。<br>以此类推，我们得到结论：<strong>(0,2k)</strong>是必败点，<strong>(0,2k+1)</strong>是必胜点。</p>
+<p>如何让对手面临<strong>(0,2k)</strong>呢？显然，当目前局面是<strong>(1,2k+1)</strong>时，可以两堆各取一个石子，所以<strong>(1,2k+1)</strong>是必胜点。<br>类似地，<strong>(1,2k)</strong>是必胜点，因为：  </p>
+<ol>
+<li>先手不取<strong>1</strong>那一堆石子。则后手得到<strong>(1,2k-1)</strong>必胜。因此不会这样选。</li>
+<li>先手取走<strong>1</strong>那一堆石子。则后手得到<strong>(0,2k)</strong>局面必败。先手胜。</li>
+<li>两堆石子都取。则后手得到<strong>(0,2k-1)</strong>必胜，因此不会这样选。</li>
+</ol>
+<p>因此我们得到结论：<strong>(1,*)</strong>是必胜点。</p>
+<p>由于<strong>(1,*)</strong>必胜，且<strong>(2,2)</strong>只能走到<strong>(1,*)</strong>，所以<strong>(2,2)</strong>必败。<br>故<strong>(2,3)</strong>和<strong>(3,3)</strong>是必胜点。由于<strong>(2,4)</strong>是必败点，所以<strong>(3,4)</strong>是必胜点。</p>
+<p>稍微推理一番就得知：  </p>
+<blockquote>
+<p><code>(偶数,偶数)</code>是必败点。<br><code>(奇数,偶数)</code>是必胜点。<br><code>(偶数,奇数)</code>是必胜点。<br><code>(奇数,奇数)</code>是必胜点。  </p>
+</blockquote>
+<p>历经艰险，总算把事情推完了。博弈论真是迷人……</p>
+<h2 id="Nim游戏"><a href="#Nim游戏" class="headerlink" title="Nim游戏"></a>Nim游戏</h2><p>Alice和Bob正在玩一个游戏，Alice先手。</p>
+<p>他们面前有三堆石子。Alice和Bob轮流操作，每次从某堆中取走任意张。<br>没石子可取的玩家失败。</p>
+<p>那么这个博弈如何做？  </p>
+<p>抱歉，我也不会证，只知道结论，如果要证，请找<a href="http://link-arthur.github.io/" target="_blank" rel="noopener">Link神</a>。</p>
+<p>像之前那样以(a,b,c)表示状态。结论是(⊕表示异或)：  </p>
+<ol>
+<li>当且仅当a ⊕  b ⊕ c = 0时，(a,b,c)是必败点。</li>
+<li>否则就是必胜点。</li>
+</ol>
+<p>结论可以推广：<br>若有n堆石子，则当且仅当a ⊕ b  ⊕ c ⊕ d… = 0**时，此点是必败点。</p>
+<h2 id="SG函数"><a href="#SG函数" class="headerlink" title="SG函数"></a>SG函数</h2><p>留坑待补</p>
+
+        </div>
+
+        
+        <div class="card page-about-me flex-row">
+            <a href="/" class="avatar waves-effect waves-circle waves-light"><img src="/img/avatar.jpg"></a>
+            <div class="content flex-col">
+                <p><strong>jfy</strong></p>
+                <p><em>Don't cry because it's over,smile because it happened</em></p>
+                <p>用户页面中作者相关的描述性文字，如不需要设为 false</p>
+            </div>
+
             
-            <h3 class="archive-separator">十月, 2019</h3>
-            <div class="waterfall">
+<div class="page-share-wrap">
     
 
-        <div class="waterfall-item">
-  <article class="article-card archive-article">
-    <div class="post-meta">
-      <time class="post-time" title="2019-10-17 00:00:00" datetime="2019-10-16T16:00:00.000Z"  itemprop="datePublished">2019-10-17</time>
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://jfyblog.xyz/博弈论/&title=《博弈论》 — jfyの博客&pic=http://jfyblog.xyz/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://jfyblog.xyz/博弈论/&title=《博弈论》 — jfyの博客&source=博弈论一些简单的定义：
+必胜点（N点）：走到必胜点的玩家一定胜利。必败点（P点）：走到必败点的玩家一定失败。" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://jfyblog.xyz/博弈论/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《博弈论》 — jfyの博客&url=http://jfyblog.xyz/博弈论/&via=http://jfyblog.xyz" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://jfyblog.xyz/博弈论/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
 
-      
 
 
-    </div>
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/10/17/博弈论/">博弈论</a>
-    </h3>
-  
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
 
 
 
-    
-    <div class="post-footer">
+        </div>
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
 
-    </div>
-    
-  </article>
-</div>
-
-    
-
-        <div class="waterfall-item">
-  <article class="article-card archive-article">
-    <div class="post-meta">
-      <time class="post-time" title="2019-10-17 00:00:00" datetime="2019-10-16T16:00:00.000Z"  itemprop="datePublished">2019-10-17</time>
-
-      
-
-
-    </div>
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/10/17/cspj/">CSP-J初赛知识点</a>
-    </h3>
-  
-
-
-
-    
-    <div class="post-footer">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/初赛/">初赛</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
-
-    </div>
-    
-  </article>
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
 </div>
 
-    
-
-        <div class="waterfall-item">
-  <article class="article-card archive-article">
-    <div class="post-meta">
-      <time class="post-time" title="2019-10-16 00:00:00" datetime="2019-10-15T16:00:00.000Z"  itemprop="datePublished">2019-10-16</time>
-
-      
 
 
-    </div>
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/10/16/近似算法/">近似算法</a>
-    </h3>
-  
-
-
-
-    
-    <div class="post-footer">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
 
-    </div>
+    </article>
     
-  </article>
-</div>
-
-    
-
-        <div class="waterfall-item">
-  <article class="article-card archive-article">
-    <div class="post-meta">
-      <time class="post-time" title="2019-10-16 00:00:00" datetime="2019-10-15T16:00:00.000Z"  itemprop="datePublished">2019-10-16</time>
-
-      
-
-
-    </div>
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/10/16/三分查找/">三分查找</a>
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
     </h3>
-  
-
-
-
-    
-    <div class="post-footer">
+    <div class="reward-content">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
-
-    </div>
-    
-  </article>
-</div>
-
-    
-
-        <div class="waterfall-item">
-  <article class="article-card archive-article">
-    <div class="post-meta">
-      <time class="post-time" title="2019-10-13 00:00:00" datetime="2019-10-12T16:00:00.000Z"  itemprop="datePublished">2019-10-13</time>
-
-      
-
-
-    </div>
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/10/13/长征/">长征探究</a>
-    </h3>
-  
-
-
-
-    
-    <div class="post-footer">
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/读后感/">读后感</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
-
-    </div>
-    
-  </article>
-</div>
-
-    
-
-        <div class="waterfall-item">
-  <article class="article-card archive-article">
-    <div class="post-meta">
-      <time class="post-time" title="2019-10-13 00:00:00" datetime="2019-10-12T16:00:00.000Z"  itemprop="datePublished">2019-10-13</time>
-
-      
-
-
-    </div>
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/10/13/红星照耀中国读后感/">红星照耀中国读后感</a>
-    </h3>
-  
-
-
-
-    
-    <div class="post-footer">
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/读后感/">读后感</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
-
     </div>
-    
-  </article>
 </div>
 
-    
-
-        <div class="waterfall-item">
-  <article class="article-card archive-article">
-    <div class="post-meta">
-      <time class="post-time" title="2019-10-13 00:00:00" datetime="2019-10-12T16:00:00.000Z"  itemprop="datePublished">2019-10-13</time>
-
-      
-
-
-    </div>
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/10/13/排序模板/">排序模板</a>
-    </h3>
-  
-
-
-
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/模板/">模板</a></li></ul>
-
-    </div>
-    
-  </article>
-</div>
-
-    
-
-        <div class="waterfall-item">
-  <article class="article-card archive-article">
-    <div class="post-meta">
-      <time class="post-time" title="2019-10-07 00:00:00" datetime="2019-10-06T16:00:00.000Z"  itemprop="datePublished">2019-10-07</time>
-
-      
-
-
-    </div>
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/10/07/Test 2019.10.7/">Test 2019.10.7 题解</a>
-    </h3>
-  
-
-
-
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/考试/">考试</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/题解/">题解</a></li></ul>
-
-    </div>
-    
-  </article>
-</div>
-
-    
-            </div> 
-            <h3 class="archive-separator">九月, 2019</h3>
-            <div class="waterfall">
-    
-
-        <div class="waterfall-item">
-  <article class="article-card archive-article">
-    <div class="post-meta">
-      <time class="post-time" title="2019-09-13 00:00:00" datetime="2019-09-12T16:00:00.000Z"  itemprop="datePublished">2019-09-13</time>
-
-      
-
-
-    </div>
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/09/13/P1147连续自然数和题解/">P1147 连续自然数和 题解</a>
-    </h3>
-  
-
-
-
-    
-  </article>
-</div>
-
-    
-
-        <div class="waterfall-item">
-  <article class="article-card archive-article">
-    <div class="post-meta">
-      <time class="post-time" title="2019-09-08 00:00:00" datetime="2019-09-07T16:00:00.000Z"  itemprop="datePublished">2019-09-08</time>
-
-      
-
-
-    </div>
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/09/08/深夜失眠记/">深夜失眠记</a>
-    </h3>
-  
-
-
-
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
-
-    </div>
-    
-  </article>
-</div>
-
-    
-    </div>
-
-    
-<nav id="page-nav">
-    <div class="inner">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/2019/page/2/">2</a><a class="page-number" href="/archives/2019/page/3/">3</a><a class="extend next" rel="next" href="/archives/2019/page/2/">下一页</a>
-    </div>
-</nav>
 
 </div>
 
@@ -622,7 +440,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://jfyblog.xyz/archives/2019/&title=jfyの博客&pic=http://jfyblog.xyz/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://jfyblog.xyz/博弈论/&title=《博弈论》 — jfyの博客&pic=http://jfyblog.xyz/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -632,22 +450,23 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://jfyblog.xyz/archives/2019/&title=jfyの博客&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://jfyblog.xyz/博弈论/&title=《博弈论》 — jfyの博客&source=博弈论一些简单的定义：
+必胜点（N点）：走到必胜点的玩家一定胜利。必败点（P点）：走到必败点的玩家一定失败。" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://jfyblog.xyz/archives/2019/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://jfyblog.xyz/博弈论/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=jfyの博客&url=http://jfyblog.xyz/archives/2019/&via=http://jfyblog.xyz" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《博弈论》 — jfyの博客&url=http://jfyblog.xyz/博弈论/&via=http://jfyblog.xyz" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://jfyblog.xyz/archives/2019/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://jfyblog.xyz/博弈论/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -658,7 +477,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://jfyblog.xyz/archives/2019/" alt="微信分享二维码">
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://jfyblog.xyz/博弈论/" alt="微信分享二维码">
 </div>
 
 
@@ -666,7 +485,7 @@
 
     <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
 <script>
-var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
 
 
 </script>
