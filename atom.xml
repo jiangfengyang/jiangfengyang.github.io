@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jfyblog.xyz/"/>
-  <updated>2019-10-17T15:25:09.426Z</updated>
+  <updated>2019-10-18T08:57:18.000Z</updated>
   <id>http://jfyblog.xyz/</id>
   
   <author>
@@ -17,24 +17,27 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>博弈论</title>
-    <link href="http://jfyblog.xyz/2019/10/17/%E5%8D%9A%E5%BC%88%E8%AE%BA/"/>
-    <id>http://jfyblog.xyz/2019/10/17/博弈论/</id>
-    <published>2019-10-16T16:00:00.000Z</published>
-    <updated>2019-10-17T15:25:09.426Z</updated>
+    <title>图像大小计算</title>
+    <link href="http://jfyblog.xyz/2019/10/18/%E5%9B%BE%E5%83%8F%E5%A4%A7%E5%B0%8F%E8%AE%A1%E7%AE%97/"/>
+    <id>http://jfyblog.xyz/2019/10/18/图像大小计算/</id>
+    <published>2019-10-17T16:00:00.000Z</published>
+    <updated>2019-10-18T08:57:18.000Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="博弈论"><a href="#博弈论" class="headerlink" title="博弈论"></a>博弈论</h1><p>一些简单的定义：</p><p>必胜点（N点）：走到必胜点的玩家一定胜利。<br>必败点（P点）：走到必败点的玩家一定失败。</p><a id="more"></a><blockquote><p>定理1.所有游戏终结的点都是必败点。<br>定理2.所有一步<strong>能</strong>走到必败点的就是必胜点。因为对手将面临必败点。<br>定理3.通过一步操作<strong>只能</strong>到必胜点的就是必败点。因为对手将获得必胜点。  </p></blockquote><h2 id="取石子游戏"><a href="#取石子游戏" class="headerlink" title="取石子游戏"></a>取石子游戏</h2><p>有两堆石子和两个玩家。<br>每回合，玩家可以选择从<strong>某一堆</strong>取走一个石子，或者从<strong>两堆</strong>中都取走一个石子。  </p><p>最后无法操作的玩家失败。</p><h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>以<strong>(A,B)</strong>表示当前的状态：第一堆有<strong>A</strong>个石子，第二堆有<strong>B</strong>个石子。<br>由于这个游戏没有和局，所以<strong>某个状态不是必败点就是必胜点</strong>。</p><p>首先考虑<code>终结点</code>：两堆石子都空了，面对这个状态的玩家必败。<br>于是有了第一个必败点：<strong>(0,0)</strong>。</p><blockquote><p>定理2.所有一步能走到必败点的就是必胜点。因为对手将面临必败点。  </p></blockquote><p>由于<strong>(0,1)</strong>和<strong>(1,0)</strong>能走到<strong>(0,0)</strong>，因此它们是必胜点。</p><blockquote><p>定理3.通过一步操作<strong>只能</strong>到必胜点的就是必败点。因为对手将获得必胜点。  </p></blockquote><p>考虑<strong>(0,1)</strong>，显然<strong>(0,2)</strong>只能走到<strong>(0,1)</strong>，所以<strong>(0,2)</strong>是必败点。由于<strong>(0,3)</strong>能走到<strong>(0,2)</strong>让对手必败，所以<strong>(0,3)</strong>是必胜点。<br>以此类推，我们得到结论：<strong>(0,2k)</strong>是必败点，<strong>(0,2k+1)</strong>是必胜点。</p><p>如何让对手面临<strong>(0,2k)</strong>呢？显然，当目前局面是<strong>(1,2k+1)</strong>时，可以两堆各取一个石子，所以<strong>(1,2k+1)</strong>是必胜点。<br>类似地，<strong>(1,2k)</strong>是必胜点，因为：  </p><ol><li>先手不取<strong>1</strong>那一堆石子。则后手得到<strong>(1,2k-1)</strong>必胜。因此不会这样选。</li><li>先手取走<strong>1</strong>那一堆石子。则后手得到<strong>(0,2k)</strong>局面必败。先手胜。</li><li>两堆石子都取。则后手得到<strong>(0,2k-1)</strong>必胜，因此不会这样选。</li></ol><p>因此我们得到结论：<strong>(1,*)</strong>是必胜点。</p><p>由于<strong>(1,*)</strong>必胜，且<strong>(2,2)</strong>只能走到<strong>(1,*)</strong>，所以<strong>(2,2)</strong>必败。<br>故<strong>(2,3)</strong>和<strong>(3,3)</strong>是必胜点。由于<strong>(2,4)</strong>是必败点，所以<strong>(3,4)</strong>是必胜点。</p><p>稍微推理一番就得知：  </p><blockquote><p><code>(偶数,偶数)</code>是必败点。<br><code>(奇数,偶数)</code>是必胜点。<br><code>(偶数,奇数)</code>是必胜点。<br><code>(奇数,奇数)</code>是必胜点。  </p></blockquote><p>历经艰险，总算把事情推完了。博弈论真是迷人……</p><h2 id="Nim游戏"><a href="#Nim游戏" class="headerlink" title="Nim游戏"></a>Nim游戏</h2><p>Alice和Bob正在玩一个游戏，Alice先手。</p><p>他们面前有三堆石子。Alice和Bob轮流操作，每次从某堆中取走任意张。<br>没石子可取的玩家失败。</p><p>那么这个博弈如何做？  </p><p>抱歉，我也不会证，只知道结论，如果要证，请找<a href="http://link-arthur.github.io/" target="_blank" rel="noopener">Link神</a>。</p><p>像之前那样以(a,b,c)表示状态。结论是(⊕表示异或)：  </p><ol><li>当且仅当a ⊕  b ⊕ c = 0时，(a,b,c)是必败点。</li><li>否则就是必胜点。</li></ol><p>结论可以推广：<br>若有n堆石子，则当且仅当a ⊕ b  ⊕ c ⊕ d… = 0**时，此点是必败点。</p><h2 id="SG函数"><a href="#SG函数" class="headerlink" title="SG函数"></a>SG函数</h2><p>留坑待补</p>]]></content>
+    <content type="html"><![CDATA[<p>大小=分辨率*位深/8<br>分辨率=宽X高（如：1024X768,640X480）<br>位深：如24位，16位，8位<br>除以8计算的是字节数。</p><p>例如：<br>一幅图像分辨率：1024*768,24位，则其大小计算如下：<br>大小=1024X768X824/8=2359296byte=2304KB</p>]]></content>
     
     <summary type="html">
     
-      &lt;h1 id=&quot;博弈论&quot;&gt;&lt;a href=&quot;#博弈论&quot; class=&quot;headerlink&quot; title=&quot;博弈论&quot;&gt;&lt;/a&gt;博弈论&lt;/h1&gt;&lt;p&gt;一些简单的定义：&lt;/p&gt;
-&lt;p&gt;必胜点（N点）：走到必胜点的玩家一定胜利。&lt;br&gt;必败点（P点）：走到必败点的玩家一定失败。&lt;/p&gt;
+      
+      
+        &lt;p&gt;大小=分辨率*位深/8&lt;br&gt;分辨率=宽X高（如：1024X768,640X480）&lt;br&gt;位深：如24位，16位，8位&lt;br&gt;除以8计算的是字节数。&lt;/p&gt;
+&lt;p&gt;例如：&lt;br&gt;一幅图像分辨率：1024*768,24位，则其大小计算如下：&lt;br&gt;大小=1024X768X8
+      
     
     </summary>
     
     
     
-      <category term="算法" scheme="http://jfyblog.xyz/tags/%E7%AE%97%E6%B3%95/"/>
+      <category term="初赛" scheme="http://jfyblog.xyz/tags/%E5%88%9D%E8%B5%9B/"/>
     
   </entry>
   
@@ -61,6 +64,28 @@
       <category term="算法" scheme="http://jfyblog.xyz/tags/%E7%AE%97%E6%B3%95/"/>
     
       <category term="初赛" scheme="http://jfyblog.xyz/tags/%E5%88%9D%E8%B5%9B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>博弈论</title>
+    <link href="http://jfyblog.xyz/2019/10/17/%E5%8D%9A%E5%BC%88%E8%AE%BA/"/>
+    <id>http://jfyblog.xyz/2019/10/17/博弈论/</id>
+    <published>2019-10-16T16:00:00.000Z</published>
+    <updated>2019-10-17T15:25:09.426Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="博弈论"><a href="#博弈论" class="headerlink" title="博弈论"></a>博弈论</h1><p>一些简单的定义：</p><p>必胜点（N点）：走到必胜点的玩家一定胜利。<br>必败点（P点）：走到必败点的玩家一定失败。</p><a id="more"></a><blockquote><p>定理1.所有游戏终结的点都是必败点。<br>定理2.所有一步<strong>能</strong>走到必败点的就是必胜点。因为对手将面临必败点。<br>定理3.通过一步操作<strong>只能</strong>到必胜点的就是必败点。因为对手将获得必胜点。  </p></blockquote><h2 id="取石子游戏"><a href="#取石子游戏" class="headerlink" title="取石子游戏"></a>取石子游戏</h2><p>有两堆石子和两个玩家。<br>每回合，玩家可以选择从<strong>某一堆</strong>取走一个石子，或者从<strong>两堆</strong>中都取走一个石子。  </p><p>最后无法操作的玩家失败。</p><h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>以<strong>(A,B)</strong>表示当前的状态：第一堆有<strong>A</strong>个石子，第二堆有<strong>B</strong>个石子。<br>由于这个游戏没有和局，所以<strong>某个状态不是必败点就是必胜点</strong>。</p><p>首先考虑<code>终结点</code>：两堆石子都空了，面对这个状态的玩家必败。<br>于是有了第一个必败点：<strong>(0,0)</strong>。</p><blockquote><p>定理2.所有一步能走到必败点的就是必胜点。因为对手将面临必败点。  </p></blockquote><p>由于<strong>(0,1)</strong>和<strong>(1,0)</strong>能走到<strong>(0,0)</strong>，因此它们是必胜点。</p><blockquote><p>定理3.通过一步操作<strong>只能</strong>到必胜点的就是必败点。因为对手将获得必胜点。  </p></blockquote><p>考虑<strong>(0,1)</strong>，显然<strong>(0,2)</strong>只能走到<strong>(0,1)</strong>，所以<strong>(0,2)</strong>是必败点。由于<strong>(0,3)</strong>能走到<strong>(0,2)</strong>让对手必败，所以<strong>(0,3)</strong>是必胜点。<br>以此类推，我们得到结论：<strong>(0,2k)</strong>是必败点，<strong>(0,2k+1)</strong>是必胜点。</p><p>如何让对手面临<strong>(0,2k)</strong>呢？显然，当目前局面是<strong>(1,2k+1)</strong>时，可以两堆各取一个石子，所以<strong>(1,2k+1)</strong>是必胜点。<br>类似地，<strong>(1,2k)</strong>是必胜点，因为：  </p><ol><li>先手不取<strong>1</strong>那一堆石子。则后手得到<strong>(1,2k-1)</strong>必胜。因此不会这样选。</li><li>先手取走<strong>1</strong>那一堆石子。则后手得到<strong>(0,2k)</strong>局面必败。先手胜。</li><li>两堆石子都取。则后手得到<strong>(0,2k-1)</strong>必胜，因此不会这样选。</li></ol><p>因此我们得到结论：<strong>(1,*)</strong>是必胜点。</p><p>由于<strong>(1,*)</strong>必胜，且<strong>(2,2)</strong>只能走到<strong>(1,*)</strong>，所以<strong>(2,2)</strong>必败。<br>故<strong>(2,3)</strong>和<strong>(3,3)</strong>是必胜点。由于<strong>(2,4)</strong>是必败点，所以<strong>(3,4)</strong>是必胜点。</p><p>稍微推理一番就得知：  </p><blockquote><p><code>(偶数,偶数)</code>是必败点。<br><code>(奇数,偶数)</code>是必胜点。<br><code>(偶数,奇数)</code>是必胜点。<br><code>(奇数,奇数)</code>是必胜点。  </p></blockquote><p>历经艰险，总算把事情推完了。博弈论真是迷人……</p><h2 id="Nim游戏"><a href="#Nim游戏" class="headerlink" title="Nim游戏"></a>Nim游戏</h2><p>Alice和Bob正在玩一个游戏，Alice先手。</p><p>他们面前有三堆石子。Alice和Bob轮流操作，每次从某堆中取走任意张。<br>没石子可取的玩家失败。</p><p>那么这个博弈如何做？  </p><p>抱歉，我也不会证，只知道结论，如果要证，请找<a href="http://link-arthur.github.io/" target="_blank" rel="noopener">Link神</a>。</p><p>像之前那样以(a,b,c)表示状态。结论是(⊕表示异或)：  </p><ol><li>当且仅当a ⊕  b ⊕ c = 0时，(a,b,c)是必败点。</li><li>否则就是必胜点。</li></ol><p>结论可以推广：<br>若有n堆石子，则当且仅当a ⊕ b  ⊕ c ⊕ d… = 0**时，此点是必败点。</p><h2 id="SG函数"><a href="#SG函数" class="headerlink" title="SG函数"></a>SG函数</h2><p>留坑待补</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;博弈论&quot;&gt;&lt;a href=&quot;#博弈论&quot; class=&quot;headerlink&quot; title=&quot;博弈论&quot;&gt;&lt;/a&gt;博弈论&lt;/h1&gt;&lt;p&gt;一些简单的定义：&lt;/p&gt;
+&lt;p&gt;必胜点（N点）：走到必胜点的玩家一定胜利。&lt;br&gt;必败点（P点）：走到必败点的玩家一定失败。&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="算法" scheme="http://jfyblog.xyz/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
@@ -260,9 +285,9 @@
     
     
     
-      <category term="动态规划" scheme="http://jfyblog.xyz/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
-    
       <category term="算法" scheme="http://jfyblog.xyz/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="动态规划" scheme="http://jfyblog.xyz/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
     
   </entry>
   
@@ -430,29 +455,6 @@
     <summary type="html">
     
       &lt;h3 id=&quot;题目传送门&quot;&gt;&lt;a href=&quot;#题目传送门&quot; class=&quot;headerlink&quot; title=&quot;题目传送门&quot;&gt;&lt;/a&gt;&lt;strong&gt;题目传送门&lt;/strong&gt;&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;http://211.140.156.254:2334/problem.php?cid=1055&amp;pid=0&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;T1&lt;/a&gt;          &lt;a href=&quot;http://211.140.156.254:2334/problem.php?cid=1055&amp;pid=1&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;T2&lt;/a&gt;          &lt;a href=&quot;http://211.140.156.254:2334/problem.php?cid=1055&amp;pid=2&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;T3&lt;/a&gt;          &lt;a href=&quot;http://211.140.156.254:2334/problem.php?cid=1055&amp;pid=3&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;T4&lt;/a&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="考试" scheme="http://jfyblog.xyz/tags/%E8%80%83%E8%AF%95/"/>
-    
-      <category term="题解" scheme="http://jfyblog.xyz/tags/%E9%A2%98%E8%A7%A3/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Test 2019.5.19 题解</title>
-    <link href="http://jfyblog.xyz/2019/05/19/Test%202019.5.19/"/>
-    <id>http://jfyblog.xyz/2019/05/19/Test 2019.5.19/</id>
-    <published>2019-05-18T16:00:00.000Z</published>
-    <updated>2019-10-11T12:47:52.556Z</updated>
-    
-    <content type="html"><![CDATA[<p>日常学校考试，这次试卷大致是 一道字符串处理 + 一道二分 + 一道看起来十分像DFS的动规，期望值210，实际180，100+80+0.好吧还是看下试卷.</p><a id="more"></a><p>T1: <a href="https://www.luogu.org/problemnew/show/P4470" target="_blank" rel="noopener">传送门</a></p><p>T2: <a href="https://blog.csdn.net/weixin_41443764/article/details/90346576" target="_blank" rel="noopener">传送门</a></p><p>T3: <a href="http://211.140.156.254:2334/problem.php?cid=1036&pid=2" target="_blank" rel="noopener">传送门</a></p><h4 id="T1："><a href="#T1：" class="headerlink" title="T1："></a>T1：</h4><p>一道简单的字符串处理 （模拟），也就打了一个小时。原理和现实生活相近，类似于智能推荐的输入按键。模拟题意，逐个判断（简单易懂）。这道题认真模拟，注意最后输出的换行顺序就好。</p><p>本题思路</p><ul><li>先输入n个，目的地名称，再输入已经输进去的字母</li><li>然后对于每一个输入进去的字母都进行判断是否和目的地一致（只要有一个不一样就做标记，在最后搜索时跳过）</li><li>对于每一个目的地，只要没被做过标记那么他的没输入的下一个字母就在输出的表数组上记录</li><li>最后输出一个表</li></ul><p>AC代码</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">char f[60][110],c[259];</span><br><span class="line">int i,n,ans[27],k=-1,l;</span><br><span class="line">bool b[90];</span><br><span class="line">void print()&#123;</span><br><span class="line">    printf(&quot;***&quot;);</span><br><span class="line">    for(i=1;i&lt;=26;i++)&#123;</span><br><span class="line">        if(ans[i])cout&lt;&lt;char(i+64);</span><br><span class="line">        else printf(&quot;*&quot;);</span><br><span class="line">        if((i+3)%8==0 &amp;&amp; i&gt;4)cout&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">    printf(&quot;***&quot;);</span><br><span class="line">&#125;</span><br><span class="line">int main()&#123;</span><br><span class="line">    cin&gt;&gt;n;</span><br><span class="line">    for(i=1;i&lt;=n;i++)cin&gt;&gt;f[i];</span><br><span class="line">    cin&gt;&gt;c;</span><br><span class="line">    l = strlen(c);</span><br><span class="line">    while(++k &lt; l)&#123;</span><br><span class="line">        for(i=1;i&lt;=n;i++)&#123;</span><br><span class="line">            if(!b[i])if(f[i][k] != c[k])b[i]=true;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    for(i=1;i&lt;=n;i++)&#123;</span><br><span class="line">        if(!b[i])ans[f[i][l]-64]=1;</span><br><span class="line">    &#125;</span><br><span class="line">    print();</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h4 id="T2"><a href="#T2" class="headerlink" title="T2:"></a>T2:</h4><p>自己用暴力做的80分，正解二分，没什么多说的了。</p><p>暴力代码</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">#define maxn 100003</span><br><span class="line">using namespace std;</span><br><span class="line">int a,b,c,i,j,k;</span><br><span class="line">long long ans;          //此题的大坑点，无数打正解的人都wa在这</span><br><span class="line">int cake1[maxn],cake2[maxn],cake3[maxn];</span><br><span class="line">int main()&#123;</span><br><span class="line">    scanf(&quot;%d%d%d&quot;,&amp;a,&amp;b,&amp;c);</span><br><span class="line">    for(i=1;i&lt;=a;i++)cin&gt;&gt;cake1[i];</span><br><span class="line">    for(i=1;i&lt;=b;i++)cin&gt;&gt;cake2[i];</span><br><span class="line">    for(i=1;i&lt;=c;i++)cin&gt;&gt;cake3[i];</span><br><span class="line">    for(i=1;i&lt;=a;i++)&#123;</span><br><span class="line">        for(j=1;j&lt;=b;j++)&#123;</span><br><span class="line">            if(cake1[i]&gt;=cake2[j])continue;</span><br><span class="line">            for(k=1;k&lt;=c;k++)&#123;</span><br><span class="line">                if(cake2[j]&gt;=cake3[k])continue;</span><br><span class="line">                ans+=1;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    printf(&quot;%d&quot;,ans);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h4 id="T3"><a href="#T3" class="headerlink" title="T3:"></a>T3:</h4><p>一道动规题，当初做时以为是DFS，结果爆0了…….</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">#define maxn 5000</span><br><span class="line">#define inf 0xfffffff</span><br><span class="line">int sc[maxn+5],n,l,r,ans=-inf,f[maxn+5];</span><br><span class="line">int main()&#123;</span><br><span class="line">    cin&gt;&gt;n&gt;&gt;l&gt;&gt;r;</span><br><span class="line">    for(int i=1;i&lt;=n;i++)&#123;</span><br><span class="line">        cin&gt;&gt;sc[i];</span><br><span class="line">        f[i]=-inf;</span><br><span class="line">    &#125;</span><br><span class="line">    f[1]=sc[1];</span><br><span class="line">    for(int i=2;i&lt;=n;i++)&#123;</span><br><span class="line">        for(int j=l;j&lt;=r;j++)&#123;</span><br><span class="line">            if(i-j &gt; 0)f[i]=max(f[i],f[i-j]);</span><br><span class="line">        &#125;</span><br><span class="line">        if(f[i]!=-inf)f[i]+=sc[i];</span><br><span class="line">        if(i+l&gt;=n)ans=max(ans,f[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    cout&lt;&lt;ans;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><pre><code>    ﻿</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;日常学校考试，这次试卷大致是 一道字符串处理 + 一道二分 + 一道看起来十分像DFS的动规，期望值210，实际180，100+80+0.好吧还是看下试卷.&lt;/p&gt;
     
     </summary>
     
