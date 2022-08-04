@@ -6,16 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>相册 | jfyのblog</title>
+  <title>Test 2019.5.19 题解 | jfyのblog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="相册">
-<meta property="og:url" content="http://example.com/gallery/index.html">
+  <meta name="description" content="日常学校考试，这次试卷大致是 一道字符串处理 + 一道二分 + 一道看起来十分像DFS的动规，期望值210，实际180，100+80+0.好吧还是看下试卷.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Test 2019.5.19 题解">
+<meta property="og:url" content="http://example.com/2019/05/19/Test%202019.5.19/index.html">
 <meta property="og:site_name" content="jfyのblog">
+<meta property="og:description" content="日常学校考试，这次试卷大致是 一道字符串处理 + 一道二分 + 一道看起来十分像DFS的动规，期望值210，实际180，100+80+0.好吧还是看下试卷.">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-08-04T10:38:31.391Z">
-<meta property="article:modified_time" content="2022-08-04T10:38:31.391Z">
+<meta property="article:published_time" content="2019-05-18T16:00:00.000Z">
+<meta property="article:modified_time" content="2019-10-11T12:47:54.000Z">
 <meta property="article:author" content="HDMI">
+<meta property="article:tag" content="考试">
+<meta property="article:tag" content="题解">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="jfyのblog" type="application/atom+xml">
@@ -164,28 +168,54 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="gallery-" class="article article-type-gallery " itemscope itemprop="blogPost">
+            <article id="post-Test 2019.5.19" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      相册
+      Test 2019.5.19 题解
     </h1>
   
 
         
         
-        <a href="/gallery/index.html" class="archive-article-date">
-  	<time datetime="2022-08-04T10:38:31.391Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-08-04</time>
+        <a href="/2019/05/19/Test%202019.5.19/" class="archive-article-date">
+  	<time datetime="2019-05-18T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-19</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>日常学校考试，这次试卷大致是 一道字符串处理 + 一道二分 + 一道看起来十分像DFS的动规，期望值210，实际180，100+80+0.好吧还是看下试卷.</p>
+<span id="more"></span>
+
+<p>T1: <a target="_blank" rel="noopener" href="https://www.luogu.org/problemnew/show/P4470">传送门</a></p>
+<p>T2: <a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_41443764/article/details/90346576">传送门</a></p>
+<p>T3: <a target="_blank" rel="noopener" href="http://211.140.156.254:2334/problem.php?cid=1036&pid=2">传送门</a></p>
+<h4 id="T1："><a href="#T1：" class="headerlink" title="T1："></a>T1：</h4><p>一道简单的字符串处理 （模拟），也就打了一个小时。原理和现实生活相近，类似于智能推荐的输入按键。模拟题意，逐个判断（简单易懂）。这道题认真模拟，注意最后输出的换行顺序就好。</p>
+<p>本题思路</p>
+<ul>
+<li>先输入n个，目的地名称，再输入已经输进去的字母</li>
+<li>然后对于每一个输入进去的字母都进行判断是否和目的地一致（只要有一个不一样就做标记，在最后搜索时跳过）</li>
+<li>对于每一个目的地，只要没被做过标记那么他的没输入的下一个字母就在输出的表数组上记录</li>
+<li>最后输出一个表</li>
+</ul>
+<p>AC代码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">char f[60][110],c[259];</span><br><span class="line">int i,n,ans[27],k=-1,l;</span><br><span class="line">bool b[90];</span><br><span class="line">void print()&#123;</span><br><span class="line">    printf(&quot;***&quot;);</span><br><span class="line">    for(i=1;i&lt;=26;i++)&#123;</span><br><span class="line">        if(ans[i])cout&lt;&lt;char(i+64);</span><br><span class="line">        else printf(&quot;*&quot;);</span><br><span class="line">        if((i+3)%8==0 &amp;&amp; i&gt;4)cout&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">    printf(&quot;***&quot;);</span><br><span class="line">&#125;</span><br><span class="line">int main()&#123;</span><br><span class="line">    cin&gt;&gt;n;</span><br><span class="line">    for(i=1;i&lt;=n;i++)cin&gt;&gt;f[i];</span><br><span class="line">    cin&gt;&gt;c;</span><br><span class="line">    l = strlen(c);</span><br><span class="line">    while(++k &lt; l)&#123;</span><br><span class="line">        for(i=1;i&lt;=n;i++)&#123;</span><br><span class="line">            if(!b[i])if(f[i][k] != c[k])b[i]=true;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    for(i=1;i&lt;=n;i++)&#123;</span><br><span class="line">        if(!b[i])ans[f[i][l]-64]=1;</span><br><span class="line">    &#125;</span><br><span class="line">    print();</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="T2"><a href="#T2" class="headerlink" title="T2:"></a>T2:</h4><p>自己用暴力做的80分，正解二分，没什么多说的了。</p>
+<p>暴力代码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">#define maxn 100003</span><br><span class="line">using namespace std;</span><br><span class="line">int a,b,c,i,j,k;</span><br><span class="line">long long ans;          //此题的大坑点，无数打正解的人都wa在这</span><br><span class="line">int cake1[maxn],cake2[maxn],cake3[maxn];</span><br><span class="line">int main()&#123;</span><br><span class="line">    scanf(&quot;%d%d%d&quot;,&amp;a,&amp;b,&amp;c);</span><br><span class="line">    for(i=1;i&lt;=a;i++)cin&gt;&gt;cake1[i];</span><br><span class="line">    for(i=1;i&lt;=b;i++)cin&gt;&gt;cake2[i];</span><br><span class="line">    for(i=1;i&lt;=c;i++)cin&gt;&gt;cake3[i];</span><br><span class="line">    for(i=1;i&lt;=a;i++)&#123;</span><br><span class="line">        for(j=1;j&lt;=b;j++)&#123;</span><br><span class="line">            if(cake1[i]&gt;=cake2[j])continue;</span><br><span class="line">            for(k=1;k&lt;=c;k++)&#123;</span><br><span class="line">                if(cake2[j]&gt;=cake3[k])continue;</span><br><span class="line">                ans+=1;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    printf(&quot;%d&quot;,ans);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="T3"><a href="#T3" class="headerlink" title="T3:"></a>T3:</h4><p>一道动规题，当初做时以为是DFS，结果爆0了…….</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">#define maxn 5000</span><br><span class="line">#define inf 0xfffffff</span><br><span class="line">int sc[maxn+5],n,l,r,ans=-inf,f[maxn+5];</span><br><span class="line">int main()&#123;</span><br><span class="line">    cin&gt;&gt;n&gt;&gt;l&gt;&gt;r;</span><br><span class="line">    for(int i=1;i&lt;=n;i++)&#123;</span><br><span class="line">        cin&gt;&gt;sc[i];</span><br><span class="line">        f[i]=-inf;</span><br><span class="line">    &#125;</span><br><span class="line">    f[1]=sc[1];</span><br><span class="line">    for(int i=2;i&lt;=n;i++)&#123;</span><br><span class="line">        for(int j=l;j&lt;=r;j++)&#123;</span><br><span class="line">            if(i-j &gt; 0)f[i]=max(f[i],f[i-j]);</span><br><span class="line">        &#125;</span><br><span class="line">        if(f[i]!=-inf)f[i]+=sc[i];</span><br><span class="line">        if(i+l&gt;=n)ans=max(ans,f[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    cout&lt;&lt;ans;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<pre><code>    ﻿
+</code></pre>
+
       
 	
        
@@ -217,7 +247,7 @@
 				
 				<br>
 				<strong>本文链接：</strong>
-				http://example.com/gallery/
+				http://example.com/2019/05/19/Test%202019.5.19/
 				<br>
 				<strong>版权声明：</strong>
 				本作品采用
@@ -261,6 +291,21 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">考试</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -311,7 +356,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/gallery/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2019/05/19/Test%202019.5.19/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -323,6 +368,25 @@
 </article>
 
   
+<nav id="article-nav">
+  
+    <a href="/2019/08/11/Test%202019.8.11/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Test 2019.8.11 题解
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/05/04/Test%202019.5.4/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Test 2019.5.4 题解</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -344,7 +408,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#T1%EF%BC%9A"><span class="toc-number">1.</span> <span class="toc-text">T1：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#T2"><span class="toc-number">2.</span> <span class="toc-text">T2:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#T3"><span class="toc-number">3.</span> <span class="toc-text">T3:</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -390,7 +454,7 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
@@ -659,16 +723,20 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>相册 | jfyのblog</title>
+  <title>Test 2019.5.19 题解 | jfyのblog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="相册">
-<meta property="og:url" content="http://example.com/gallery/index.html">
+  <meta name="description" content="日常学校考试，这次试卷大致是 一道字符串处理 + 一道二分 + 一道看起来十分像DFS的动规，期望值210，实际180，100+80+0.好吧还是看下试卷.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Test 2019.5.19 题解">
+<meta property="og:url" content="http://example.com/2019/05/19/Test%202019.5.19/index.html">
 <meta property="og:site_name" content="jfyのblog">
+<meta property="og:description" content="日常学校考试，这次试卷大致是 一道字符串处理 + 一道二分 + 一道看起来十分像DFS的动规，期望值210，实际180，100+80+0.好吧还是看下试卷.">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-08-04T10:38:31.391Z">
-<meta property="article:modified_time" content="2022-08-04T10:38:31.391Z">
+<meta property="article:published_time" content="2019-05-18T16:00:00.000Z">
+<meta property="article:modified_time" content="2019-10-11T12:47:54.000Z">
 <meta property="article:author" content="HDMI">
+<meta property="article:tag" content="考试">
+<meta property="article:tag" content="题解">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="jfyのblog" type="application/atom+xml">

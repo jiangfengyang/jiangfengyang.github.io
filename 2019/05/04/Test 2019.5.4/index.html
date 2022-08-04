@@ -6,16 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>相册 | jfyのblog</title>
+  <title>Test 2019.5.4 题解 | jfyのblog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="相册">
-<meta property="og:url" content="http://example.com/gallery/index.html">
+  <meta name="description" content="今天下午日常考试，交上去的时候以为稳稳300(满分),一评测190，真香。好吧，那来总结下本次考试。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Test 2019.5.4 题解">
+<meta property="og:url" content="http://example.com/2019/05/04/Test%202019.5.4/index.html">
 <meta property="og:site_name" content="jfyのblog">
+<meta property="og:description" content="今天下午日常考试，交上去的时候以为稳稳300(满分),一评测190，真香。好吧，那来总结下本次考试。">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-08-04T10:38:31.391Z">
-<meta property="article:modified_time" content="2022-08-04T10:38:31.391Z">
+<meta property="article:published_time" content="2019-05-03T16:00:00.000Z">
+<meta property="article:modified_time" content="2019-10-11T12:47:44.000Z">
 <meta property="article:author" content="HDMI">
+<meta property="article:tag" content="考试">
+<meta property="article:tag" content="题解">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="jfyのblog" type="application/atom+xml">
@@ -164,28 +168,51 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="gallery-" class="article article-type-gallery " itemscope itemprop="blogPost">
+            <article id="post-Test 2019.5.4" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      相册
+      Test 2019.5.4 题解
     </h1>
   
 
         
         
-        <a href="/gallery/index.html" class="archive-article-date">
-  	<time datetime="2022-08-04T10:38:31.391Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-08-04</time>
+        <a href="/2019/05/04/Test%202019.5.4/" class="archive-article-date">
+  	<time datetime="2019-05-03T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-04</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>今天下午日常考试，交上去的时候以为稳稳300(满分),一评测190，真香。好吧，那来总结下本次考试。</p>
+<span id="more"></span>
+
+<h2 id="题面"><a href="#题面" class="headerlink" title="题面"></a>题面</h2><p>和为给定数 (sum.cpp)  题目传送门： <a target="_blank" rel="noopener" href="http://ybt.ssoier.cn:8088/problem_show.php?pid=1244">链接</a></p>
+<p>插队(que.cpp)  题目传送门： <a target="_blank" rel="noopener" href="https://www.cnblogs.com/wangshengjun/p/10698601.html">链接</a></p>
+<p>方格取数（弱化版） 题目传送门：<a target="_blank" rel="noopener" href="http://ybt.ssoier.cn:8088/problem_show.php?pid=1277">链接</a>      注：现在只要求求一条路径的最大和。</p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="sum"><a href="#sum" class="headerlink" title="sum"></a>sum</h3><p>比较简单，用二分查找就可以了，提交，90分。 （啪~啪）</p>
+<p>后来发现是数组开的不够大，加大了一些就过了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int n,m,s[100009],i;   //注意这里要开大一点</span><br><span class="line">int ans[1005][3],p;</span><br><span class="line">bool b=true;</span><br><span class="line">int rain(int  x)&#123;      //二分模板</span><br><span class="line">    int  l=1,r=n,mid;</span><br><span class="line">    while(l&lt;=r)</span><br><span class="line">    &#123;</span><br><span class="line">        mid=l+((r-l)&gt;&gt;1);</span><br><span class="line">        if(s[mid]==x)return mid;</span><br><span class="line">        if(s[mid]&lt;x)l=mid+1;</span><br><span class="line">        if(s[mid]&gt;x)r=mid-1;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br><span class="line">int main()&#123;</span><br><span class="line">    scanf(&quot;%d&quot;,&amp;n);</span><br><span class="line">    for(i=1;i&lt;=n;i++)scanf(&quot;%d&quot;,&amp;s[i]);</span><br><span class="line">    scanf(&quot;%d&quot;,&amp;m);</span><br><span class="line">    sort(s+1,s+n+1);</span><br><span class="line">    for(i=1;s[i]&lt;=m/2;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        if(rain(m-s[i]) &amp;&amp; rain(m-s[i])!=i)</span><br><span class="line">        &#123;</span><br><span class="line">            p++;</span><br><span class="line">            ans[p][1]=s[i];</span><br><span class="line">            ans[p][2]=m-s[i];</span><br><span class="line">            b=false;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    int minn=9999999,minx;</span><br><span class="line">    if(!b)&#123;</span><br><span class="line">        for(i=1;i&lt;=p;i++)&#123;</span><br><span class="line">            if(ans[i][1]&gt;ans[i][2])swap(ans[i][1],ans[i][2]);</span><br><span class="line">            if(ans[i][1]&lt;minn)&#123;</span><br><span class="line">                minn=ans[i][1];</span><br><span class="line">                minx=i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        printf(&quot;%d %d&quot;,ans[minx][1],ans[minx][2]);</span><br><span class="line">    &#125;</span><br><span class="line">    else if(b)printf(&quot;No&quot;);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="que-cpp"><a href="#que-cpp" class="headerlink" title="que.cpp"></a>que.cpp</h3><p>这道题目交上去的时候以为是稳100的，可结果是0分啊！！！0分啊！！！</p>
+<p>自己看了半天没看出问题来，后来看了半天实在没看懂只能屁颠屁颠跑去问老师，标程是张这样的（落差好大）：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#include&lt;cstdio&gt;</span><br><span class="line">#define maxn 393939</span><br><span class="line">using namespace std;</span><br><span class="line">int n, q, x, y;</span><br><span class="line">int f[maxn], g[maxn], head;</span><br><span class="line">int main()&#123;</span><br><span class="line">    scanf(&quot;%d%d&quot;, &amp;n, &amp;q);</span><br><span class="line">    for(int i = 1; i &lt; n+1; i++)f[i] = i+1, g[i] = i-1;</span><br><span class="line">    head = 1;</span><br><span class="line">    while(q--)&#123;</span><br><span class="line">        scanf(&quot;%d%d&quot;, &amp;x, &amp;y);</span><br><span class="line">        if(x==head)head = f[x];</span><br><span class="line">        f[g[x]] = f[x];</span><br><span class="line">        g[f[x]] = g[x];</span><br><span class="line">        f[x] = f[y];</span><br><span class="line">        g[f[y]] = x;</span><br><span class="line">        f[y] = x;</span><br><span class="line">        g[x] = y;</span><br><span class="line">    &#125;</span><br><span class="line">    int i = head, j = 0;</span><br><span class="line">    while(i!=n+1)&#123;</span><br><span class="line">        printf(&quot;%d &quot;, i);</span><br><span class="line">        i = f[i];</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这道题目的<strong>正解</strong>是双向链表，目前还没有学，等以后学了再来补上…..</p>
+<h3 id="box-cpp"><a href="#box-cpp" class="headerlink" title="box.cpp"></a>box.cpp</h3><p>标准的动态规划，比较简单。</p>
+<p>每个点的最大值用递推公式得：max(sum[x-1][y],sum[x][y-1])+s[x][y]</p>
+<p>那么这道题目的思路就清晰了：把每个点的最大值得出，然后输出就行了；</p>
+<p>但据说原题不是张这样的，原题：<a target="_blank" rel="noopener" href="https://www.luogu.org/problemnew/show/P1004">链接</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">#define l 15</span><br><span class="line">using namespace std;</span><br><span class="line">int x,y,z;</span><br><span class="line">int n,s[l][l],sum[l][l];</span><br><span class="line">int t,i,j;</span><br><span class="line">int rain(int x,int y)&#123;return max(sum[x-1][y],sum[x][y-1])+s[x][y];&#125;</span><br><span class="line">int main()&#123;</span><br><span class="line">    scanf(&quot;%d&quot;,&amp;n);</span><br><span class="line">    while(scanf(&quot;%d %d %d&quot;,&amp;x,&amp;y,&amp;z))&#123;</span><br><span class="line">        if(x==0 &amp;&amp; y==0 &amp;&amp; z==0)break;</span><br><span class="line">        s[x][y] = z;</span><br><span class="line">    &#125;</span><br><span class="line">    for(i=1;i&lt;=n;i++)</span><br><span class="line">        for(j=1;j&lt;=n;j++)</span><br><span class="line">            sum[i][j]=rain(i,j);</span><br><span class="line">    printf(&quot;%d\n&quot;,sum[n][n]);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<pre><code>    ﻿
+</code></pre>
+
       
 	
        
@@ -217,7 +244,7 @@
 				
 				<br>
 				<strong>本文链接：</strong>
-				http://example.com/gallery/
+				http://example.com/2019/05/04/Test%202019.5.4/
 				<br>
 				<strong>版权声明：</strong>
 				本作品采用
@@ -261,6 +288,21 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">考试</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -311,7 +353,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/gallery/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2019/05/04/Test%202019.5.4/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -323,6 +365,20 @@
 </article>
 
   
+<nav id="article-nav">
+  
+    <a href="/2019/05/19/Test%202019.5.19/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Test 2019.5.19 题解
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -344,7 +400,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E9%9D%A2"><span class="toc-number">1.</span> <span class="toc-text">题面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E8%A7%A3"><span class="toc-number">2.</span> <span class="toc-text">题解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#sum"><span class="toc-number">2.1.</span> <span class="toc-text">sum</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#que-cpp"><span class="toc-number">2.2.</span> <span class="toc-text">que.cpp</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#box-cpp"><span class="toc-number">2.3.</span> <span class="toc-text">box.cpp</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -390,7 +446,7 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
@@ -659,16 +715,20 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>相册 | jfyのblog</title>
+  <title>Test 2019.5.4 题解 | jfyのblog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="相册">
-<meta property="og:url" content="http://example.com/gallery/index.html">
+  <meta name="description" content="今天下午日常考试，交上去的时候以为稳稳300(满分),一评测190，真香。好吧，那来总结下本次考试。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Test 2019.5.4 题解">
+<meta property="og:url" content="http://example.com/2019/05/04/Test%202019.5.4/index.html">
 <meta property="og:site_name" content="jfyのblog">
+<meta property="og:description" content="今天下午日常考试，交上去的时候以为稳稳300(满分),一评测190，真香。好吧，那来总结下本次考试。">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-08-04T10:38:31.391Z">
-<meta property="article:modified_time" content="2022-08-04T10:38:31.391Z">
+<meta property="article:published_time" content="2019-05-03T16:00:00.000Z">
+<meta property="article:modified_time" content="2019-10-11T12:47:44.000Z">
 <meta property="article:author" content="HDMI">
+<meta property="article:tag" content="考试">
+<meta property="article:tag" content="题解">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="jfyのblog" type="application/atom+xml">

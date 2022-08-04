@@ -6,16 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>相册 | jfyのblog</title>
+  <title>Test 2019.8.11 题解 | jfyのblog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="相册">
-<meta property="og:url" content="http://example.com/gallery/index.html">
+  <meta name="description" content="题目传送门T1          T2          T3          T4">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Test 2019.8.11 题解">
+<meta property="og:url" content="http://example.com/2019/08/11/Test%202019.8.11/index.html">
 <meta property="og:site_name" content="jfyのblog">
+<meta property="og:description" content="题目传送门T1          T2          T3          T4">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-08-04T10:38:31.391Z">
-<meta property="article:modified_time" content="2022-08-04T10:38:31.391Z">
+<meta property="article:published_time" content="2019-08-10T16:00:00.000Z">
+<meta property="article:modified_time" content="2019-10-16T14:21:26.000Z">
 <meta property="article:author" content="HDMI">
+<meta property="article:tag" content="考试">
+<meta property="article:tag" content="题解">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="jfyのblog" type="application/atom+xml">
@@ -164,28 +168,73 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="gallery-" class="article article-type-gallery " itemscope itemprop="blogPost">
+            <article id="post-Test 2019.8.11" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      相册
+      Test 2019.8.11 题解
     </h1>
   
 
         
         
-        <a href="/gallery/index.html" class="archive-article-date">
-  	<time datetime="2022-08-04T10:38:31.391Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-08-04</time>
+        <a href="/2019/08/11/Test%202019.8.11/" class="archive-article-date">
+  	<time datetime="2019-08-10T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-11</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h3 id="题目传送门"><a href="#题目传送门" class="headerlink" title="题目传送门"></a><strong>题目传送门</strong></h3><p><a target="_blank" rel="noopener" href="http://211.140.156.254:2334/problem.php?cid=1055&pid=0">T1</a>          <a target="_blank" rel="noopener" href="http://211.140.156.254:2334/problem.php?cid=1055&pid=1">T2</a>          <a target="_blank" rel="noopener" href="http://211.140.156.254:2334/problem.php?cid=1055&pid=2">T3</a>          <a target="_blank" rel="noopener" href="http://211.140.156.254:2334/problem.php?cid=1055&pid=3">T4</a></p>
+<span id="more"></span>
+
+<hr>
+<iframe border="0" marginwidth="0" marginheight="0" src="https://music.163.com/outchain/player?type=2&amp;id=1349292048&amp;auto=1&amp;height=66" width="330" height="86" frameborder="no"></iframe>
+
+<h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a><strong>题解</strong></h3><h5 id="T1-买鸡"><a href="#T1-买鸡" class="headerlink" title="T1 买鸡"></a>T1 买鸡</h5><p>这道题题面较为简单，很容易想到无脑暴力。打着 <strong>三维</strong> 的暴力，嘴里哼着小曲，一切会体面，woc数据范围有 <strong>20000</strong> ！！！转念一想，觉得还是有很大优化空间的，于是三维的暴力就成了二维的n方暴力，代码如下。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">#define re register int</span><br><span class="line">using namespace std;</span><br><span class="line">int n,m,s1,s2,t;</span><br><span class="line">int main()&#123;</span><br><span class="line">	scanf(&quot;%d%d&quot;,&amp;m,&amp;n);   //输入，ps:本人在此将m当成钱，n当成只数.</span><br><span class="line">	for(re i=0;i&lt;=n;i++)&#123;     //枚举过程，从0只公鸡枚举到n只公鸡.</span><br><span class="line">		s1=i*5;    //买i只公鸡所花的钱</span><br><span class="line">		for(re j=0;j&lt;=n;++j)&#123;   //从0只母鸡枚举到n只母鸡.</span><br><span class="line">			s2=j*3;    //买i只母鸡所花的钱.</span><br><span class="line">            t=(m-s1-s2)*3;    //m-s1-s2是剩下的钱，因为一元钱可以买三只鸡，所以乘3.</span><br><span class="line">			if(t+i+j==n)printf(&quot;%d %d %d\n&quot;,i,j,t);//如果买的鸡数等于题目要求数，输出</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><del>没有优化的还是比较简单无脑的</del></p>
+<p>但是，有的 DL 就会提出疑问了，n方的复杂度，20000<strong>不是也会超时吗</strong>？</p>
+<p><em>正确！</em></p>
+<p>当 <strong>i</strong> 为 <strong>k</strong> 时，<strong>j</strong> 能取的最大值为 <strong>n-k</strong>.</p>
+<p>所以我们还可以优化 <strong>j</strong> 循环的次数，在数据较大时能砍下不少常数. <del>(浪费时间)</del></p>
+<p>得到以下伪代码:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">for(i=0;i&lt;=n;++i)&#123;</span><br><span class="line">    for(j=0;j&lt;=n-i;++j)&#123;  //优化为n-i</span><br><span class="line">    	····</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>很多人以为这样就优化完了，实则不然，再细看题面，发现还可以优化，在 <strong>i</strong> 循环的过程中，可以将循环的最大值设为 <strong>min(m&#x2F;5,n)</strong> ,为什么呢？因为m为钱,一只公鸡需要5元，那么最多买的公鸡数则为<strong>m&#x2F;5</strong>   <del>(ps:买不起)</del>。同理，j也是如此。</p>
+<p>最终得到以下代码（仅供参考）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">#define re register int</span><br><span class="line">using namespace std;</span><br><span class="line">int n,m,s1,s2,s3,t;</span><br><span class="line">int main()&#123;</span><br><span class="line">	scanf(&quot;%d%d&quot;,&amp;m,&amp;n);</span><br><span class="line">	for(re i=0;i&lt;=min(m/5,n);++i)&#123;</span><br><span class="line">		s1=i*5;</span><br><span class="line">		for(re j=0;j&lt;=min(m-i*5,n-i);++j)&#123;</span><br><span class="line">			s2=j*3;t=(m-s1-s2)*3;</span><br><span class="line">			if(t+i+j==n)printf(&quot;%d %d %d\n&quot;,i,j,t);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h5 id="T2-勾股数"><a href="#T2-勾股数" class="headerlink" title="T2 勾股数"></a>T2 勾股数</h5><p>本人目前能力有限，还暂时不会订正，先放一下本人的暴力代码。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">#define re register int</span><br><span class="line">#define fly(a,b,c) for(re a=b;a&lt;=c;a++)</span><br><span class="line">using namespace std;</span><br><span class="line">int r,k;</span><br><span class="line">long long s1,s2,ans;</span><br><span class="line">int check(long long n)&#123;</span><br><span class="line">	if(sqrt(n)*sqrt(n)==n)return 1;</span><br><span class="line">	else return 0;</span><br><span class="line">&#125;</span><br><span class="line">int main()&#123;</span><br><span class="line">	scanf(&quot;%d&quot;,&amp;r);</span><br><span class="line">	fly(i,1,r)&#123;</span><br><span class="line">		s1=i*i;</span><br><span class="line">		fly(j,i,r)&#123;</span><br><span class="line">			s2=j*j;</span><br><span class="line">			if(check(s1+s2))&#123;</span><br><span class="line">				++j,++ans,k=sqrt(s1+s2);</span><br><span class="line">				printf(&quot;%d %d %d\n&quot;,i,j,k);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	printf(&quot;%d&quot;,ans);</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h5 id="T3-ISBN码"><a href="#T3-ISBN码" class="headerlink" title="T3 ISBN码"></a>T3 ISBN码</h5><p>em,与洛谷的一道题目有些相似:<a target="_blank" rel="noopener" href="https://www.luogu.org/problem/P1055">传送门</a></p>
+<p>一道超简单的字符串模拟，就是处理有点繁琐而已。</p>
+<p>1.读入，获取字符长度 <del>（等于没说）</del></p>
+<p>2.按照ISBN的顺序求一个sum，记录”?”的出现位置</p>
+<p>3.枚举</p>
+<p>4.特判</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">#define re register int</span><br><span class="line">#define r (10-i)</span><br><span class="line">using namespace std;</span><br><span class="line">char s[39];</span><br><span class="line">int sum,l,p,k[39];</span><br><span class="line">int main()&#123;</span><br><span class="line">	freopen(&quot;isbn.in&quot;,&quot;r&quot;,stdin);</span><br><span class="line">	freopen(&quot;isbn.out&quot;,&quot;w&quot;,stdout);</span><br><span class="line">	cin&gt;&gt;s,l=strlen(s);</span><br><span class="line">	for(re i=0;i&lt;l;i++)&#123;</span><br><span class="line">		if(s[i]!=&#x27;X&#x27;&amp;&amp;s[i]!=&#x27;?&#x27;)k[i+1]=(s[i]-&#x27;0&#x27;)*r,sum+=k[i+1];</span><br><span class="line">		else if(s[i]==&#x27;?&#x27;)p=i;</span><br><span class="line">		else if(s[i]==&#x27;X&#x27;)k[i+1]=10*r,sum+=k[i+1];</span><br><span class="line">	&#125;</span><br><span class="line">	for(re i=0;i&lt;=10;i++)&#123;</span><br><span class="line">		if((sum+i*(10-p))%11==0&amp;&amp;i!=10)&#123;</span><br><span class="line">			printf(&quot;%d&quot;,i);</span><br><span class="line">			return 0;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	if(p==9)printf(&quot;X&quot;);</span><br><span class="line">	else printf(&quot;-1&quot;);</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h5 id="T4-对角线"><a href="#T4-对角线" class="headerlink" title="T4 对角线"></a>T4 对角线</h5><p>一道十分简单的模拟题，首先打出横竖两行应该是很简单的：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">scanf(&quot;%d%d%d&quot;,&amp;n,&amp;x,&amp;y);</span><br><span class="line">FLY(i,1,n)printf(&quot;(%d,%d)&quot;,x,i);</span><br><span class="line">FLY(j,1,n)printf(&quot;(%d,%d)&quot;,j,y);</span><br><span class="line">//（注:FLY是自己码风的问题，总的来说是for(register int a=b;a&lt;=c;a++)）</span><br></pre></td></tr></table></figure>
+
+<p>然后斜着两条略有一点难度,我的做法挺简单，但码量有点大</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">xx=x,yy=y;</span><br><span class="line">while(xx&gt;1&amp;&amp;yy&gt;1)&#123;--xx;--yy;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>首先用 xx,yy 来定位(x,y),接着往左上方搜，如果到了对角线的顶点，就停止记录，接着是输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">while(xx&lt;=n&amp;&amp;yy&lt;=n)&#123;printf(&quot;(%d,%d)&quot;,xx++,yy++);&#125;</span><br></pre></td></tr></table></figure>
+
+<p>同理可得另外一条斜边的代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">while(xx&lt;n&amp;&amp;yy&gt;1)&#123;++xx;--yy;&#125;</span><br><span class="line">while(xx&gt;0&amp;&amp;yy&lt;=n)&#123;printf(&quot;(%d,%d)&quot;,xx--,yy++);&#125;</span><br></pre></td></tr></table></figure>
       
 	
        
@@ -217,7 +266,7 @@
 				
 				<br>
 				<strong>本文链接：</strong>
-				http://example.com/gallery/
+				http://example.com/2019/08/11/Test%202019.8.11/
 				<br>
 				<strong>版权声明：</strong>
 				本作品采用
@@ -261,6 +310,21 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">考试</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -311,7 +375,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/gallery/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2019/08/11/Test%202019.8.11/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -323,6 +387,25 @@
 </article>
 
   
+<nav id="article-nav">
+  
+    <a href="/2019/08/13/Test%202019.8.13/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Test 2019.8.13 题解
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/05/19/Test%202019.5.19/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Test 2019.5.19 题解</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -344,7 +427,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E4%BC%A0%E9%80%81%E9%97%A8"><span class="toc-number">1.</span> <span class="toc-text">题目传送门</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E8%A7%A3"><span class="toc-number">2.</span> <span class="toc-text">题解</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#T1-%E4%B9%B0%E9%B8%A1"><span class="toc-number">2.0.1.</span> <span class="toc-text">T1 买鸡</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#T2-%E5%8B%BE%E8%82%A1%E6%95%B0"><span class="toc-number">2.0.2.</span> <span class="toc-text">T2 勾股数</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#T3-ISBN%E7%A0%81"><span class="toc-number">2.0.3.</span> <span class="toc-text">T3 ISBN码</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#T4-%E5%AF%B9%E8%A7%92%E7%BA%BF"><span class="toc-number">2.0.4.</span> <span class="toc-text">T4 对角线</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -390,7 +473,7 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
@@ -659,16 +742,20 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>相册 | jfyのblog</title>
+  <title>Test 2019.8.11 题解 | jfyのblog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="相册">
-<meta property="og:url" content="http://example.com/gallery/index.html">
+  <meta name="description" content="题目传送门T1          T2          T3          T4">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Test 2019.8.11 题解">
+<meta property="og:url" content="http://example.com/2019/08/11/Test%202019.8.11/index.html">
 <meta property="og:site_name" content="jfyのblog">
+<meta property="og:description" content="题目传送门T1          T2          T3          T4">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-08-04T10:38:31.391Z">
-<meta property="article:modified_time" content="2022-08-04T10:38:31.391Z">
+<meta property="article:published_time" content="2019-08-10T16:00:00.000Z">
+<meta property="article:modified_time" content="2019-10-16T14:21:26.000Z">
 <meta property="article:author" content="HDMI">
+<meta property="article:tag" content="考试">
+<meta property="article:tag" content="题解">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="jfyのblog" type="application/atom+xml">

@@ -6,16 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>相册 | jfyのblog</title>
+  <title>博弈论 | jfyのblog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="相册">
-<meta property="og:url" content="http://example.com/gallery/index.html">
+  <meta name="description" content="博弈论一些简单的定义： 必胜点（N点）：走到必胜点的玩家一定胜利。必败点（P点）：走到必败点的玩家一定失败。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="博弈论">
+<meta property="og:url" content="http://example.com/2019/10/17/%E5%8D%9A%E5%BC%88%E8%AE%BA/index.html">
 <meta property="og:site_name" content="jfyのblog">
+<meta property="og:description" content="博弈论一些简单的定义： 必胜点（N点）：走到必胜点的玩家一定胜利。必败点（P点）：走到必败点的玩家一定失败。">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-08-04T10:38:31.391Z">
-<meta property="article:modified_time" content="2022-08-04T10:38:31.391Z">
+<meta property="article:published_time" content="2019-10-16T16:00:00.000Z">
+<meta property="article:modified_time" content="2019-10-17T15:25:10.000Z">
 <meta property="article:author" content="HDMI">
+<meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="jfyのblog" type="application/atom+xml">
@@ -164,28 +167,71 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="gallery-" class="article article-type-gallery " itemscope itemprop="blogPost">
+            <article id="post-博弈论" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      相册
+      博弈论
     </h1>
   
 
         
         
-        <a href="/gallery/index.html" class="archive-article-date">
-  	<time datetime="2022-08-04T10:38:31.391Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-08-04</time>
+        <a href="/2019/10/17/%E5%8D%9A%E5%BC%88%E8%AE%BA/" class="archive-article-date">
+  	<time datetime="2019-10-16T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-17</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h1 id="博弈论"><a href="#博弈论" class="headerlink" title="博弈论"></a>博弈论</h1><p>一些简单的定义：</p>
+<p>必胜点（N点）：走到必胜点的玩家一定胜利。<br>必败点（P点）：走到必败点的玩家一定失败。</p>
+<span id="more"></span>
+
+<blockquote>
+<p>定理1.所有游戏终结的点都是必败点。<br>定理2.所有一步<strong>能</strong>走到必败点的就是必胜点。因为对手将面临必败点。<br>定理3.通过一步操作<strong>只能</strong>到必胜点的就是必败点。因为对手将获得必胜点。  </p>
+</blockquote>
+<h2 id="取石子游戏"><a href="#取石子游戏" class="headerlink" title="取石子游戏"></a>取石子游戏</h2><p>有两堆石子和两个玩家。<br>每回合，玩家可以选择从<strong>某一堆</strong>取走一个石子，或者从<strong>两堆</strong>中都取走一个石子。  </p>
+<p>最后无法操作的玩家失败。</p>
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>以**(A,B)<strong>表示当前的状态：第一堆有</strong>A<strong>个石子，第二堆有</strong>B<strong>个石子。<br>由于这个游戏没有和局，所以</strong>某个状态不是必败点就是必胜点**。</p>
+<p>首先考虑<code>终结点</code>：两堆石子都空了，面对这个状态的玩家必败。<br>于是有了第一个必败点：**(0,0)**。</p>
+<blockquote>
+<p>定理2.所有一步能走到必败点的就是必胜点。因为对手将面临必败点。  </p>
+</blockquote>
+<p>由于**(0,1)<strong>和</strong>(1,0)<strong>能走到</strong>(0,0)**，因此它们是必胜点。</p>
+<blockquote>
+<p>定理3.通过一步操作<strong>只能</strong>到必胜点的就是必败点。因为对手将获得必胜点。  </p>
+</blockquote>
+<p>考虑**(0,1)<strong>，显然</strong>(0,2)<strong>只能走到</strong>(0,1)<strong>，所以</strong>(0,2)<strong>是必败点。由于</strong>(0,3)<strong>能走到</strong>(0,2)<strong>让对手必败，所以</strong>(0,3)<strong>是必胜点。<br>以此类推，我们得到结论：</strong>(0,2k)<strong>是必败点，</strong>(0,2k+1)**是必胜点。</p>
+<p>如何让对手面临**(0,2k)<strong>呢？显然，当目前局面是</strong>(1,2k+1)<strong>时，可以两堆各取一个石子，所以</strong>(1,2k+1)<strong>是必胜点。<br>类似地，</strong>(1,2k)**是必胜点，因为：  </p>
+<ol>
+<li>先手不取<strong>1</strong>那一堆石子。则后手得到**(1,2k-1)**必胜。因此不会这样选。</li>
+<li>先手取走<strong>1</strong>那一堆石子。则后手得到**(0,2k)**局面必败。先手胜。</li>
+<li>两堆石子都取。则后手得到**(0,2k-1)**必胜，因此不会这样选。</li>
+</ol>
+<p>因此我们得到结论：**(1,*)**是必胜点。</p>
+<p>由于**(1,<em>)<strong>必胜，且</strong>(2,2)<strong>只能走到</strong>(1,</em>)<strong>，所以</strong>(2,2)<strong>必败。<br>故</strong>(2,3)<strong>和</strong>(3,3)<strong>是必胜点。由于</strong>(2,4)<strong>是必败点，所以</strong>(3,4)**是必胜点。</p>
+<p>稍微推理一番就得知：  </p>
+<blockquote>
+<p><code>(偶数,偶数)</code>是必败点。<br><code>(奇数,偶数)</code>是必胜点。<br><code>(偶数,奇数)</code>是必胜点。<br><code>(奇数,奇数)</code>是必胜点。  </p>
+</blockquote>
+<p>历经艰险，总算把事情推完了。博弈论真是迷人……</p>
+<h2 id="Nim游戏"><a href="#Nim游戏" class="headerlink" title="Nim游戏"></a>Nim游戏</h2><p>Alice和Bob正在玩一个游戏，Alice先手。</p>
+<p>他们面前有三堆石子。Alice和Bob轮流操作，每次从某堆中取走任意张。<br>没石子可取的玩家失败。</p>
+<p>那么这个博弈如何做？  </p>
+<p>抱歉，我也不会证，只知道结论，如果要证，请找<a target="_blank" rel="noopener" href="http://link-arthur.github.io/">Link神</a>。</p>
+<p>像之前那样以(a,b,c)表示状态。结论是(⊕表示异或)：  </p>
+<ol>
+<li>当且仅当a ⊕  b ⊕ c &#x3D; 0时，(a,b,c)是必败点。</li>
+<li>否则就是必胜点。</li>
+</ol>
+<p>结论可以推广：<br>若有n堆石子，则当且仅当a ⊕ b  ⊕ c ⊕ d… &#x3D; 0**时，此点是必败点。</p>
+<h2 id="SG函数"><a href="#SG函数" class="headerlink" title="SG函数"></a>SG函数</h2><p>留坑待补</p>
+
       
 	
        
@@ -217,7 +263,7 @@
 				
 				<br>
 				<strong>本文链接：</strong>
-				http://example.com/gallery/
+				http://example.com/2019/10/17/%E5%8D%9A%E5%BC%88%E8%AE%BA/
 				<br>
 				<strong>版权声明：</strong>
 				本作品采用
@@ -261,6 +307,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -311,7 +368,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/gallery/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2019/10/17/%E5%8D%9A%E5%BC%88%E8%AE%BA/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -323,6 +380,25 @@
 </article>
 
   
+<nav id="article-nav">
+  
+    <a href="/2019/10/17/cspj/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          CSP-J初赛知识点
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/10/16/%E4%B8%89%E5%88%86%E6%9F%A5%E6%89%BE/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">三分查找</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -344,7 +420,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8D%9A%E5%BC%88%E8%AE%BA"><span class="toc-number">1.</span> <span class="toc-text">博弈论</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%96%E7%9F%B3%E5%AD%90%E6%B8%B8%E6%88%8F"><span class="toc-number">1.1.</span> <span class="toc-text">取石子游戏</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E6%9E%90"><span class="toc-number">1.2.</span> <span class="toc-text">分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Nim%E6%B8%B8%E6%88%8F"><span class="toc-number">1.3.</span> <span class="toc-text">Nim游戏</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SG%E5%87%BD%E6%95%B0"><span class="toc-number">1.4.</span> <span class="toc-text">SG函数</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -390,7 +466,7 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
@@ -659,16 +735,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>相册 | jfyのblog</title>
+  <title>博弈论 | jfyのblog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="相册">
-<meta property="og:url" content="http://example.com/gallery/index.html">
+  <meta name="description" content="博弈论一些简单的定义： 必胜点（N点）：走到必胜点的玩家一定胜利。必败点（P点）：走到必败点的玩家一定失败。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="博弈论">
+<meta property="og:url" content="http://example.com/2019/10/17/%E5%8D%9A%E5%BC%88%E8%AE%BA/index.html">
 <meta property="og:site_name" content="jfyのblog">
+<meta property="og:description" content="博弈论一些简单的定义： 必胜点（N点）：走到必胜点的玩家一定胜利。必败点（P点）：走到必败点的玩家一定失败。">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-08-04T10:38:31.391Z">
-<meta property="article:modified_time" content="2022-08-04T10:38:31.391Z">
+<meta property="article:published_time" content="2019-10-16T16:00:00.000Z">
+<meta property="article:modified_time" content="2019-10-17T15:25:10.000Z">
 <meta property="article:author" content="HDMI">
+<meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="jfyのblog" type="application/atom+xml">

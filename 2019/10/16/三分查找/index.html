@@ -6,16 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>相册 | jfyのblog</title>
+  <title>三分查找 | jfyのblog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="相册">
-<meta property="og:url" content="http://example.com/gallery/index.html">
+  <meta name="description" content="三分查找 三分查找用于求单峰函数的极值。速度快，但是结果并非准确值。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="三分查找">
+<meta property="og:url" content="http://example.com/2019/10/16/%E4%B8%89%E5%88%86%E6%9F%A5%E6%89%BE/index.html">
 <meta property="og:site_name" content="jfyのblog">
+<meta property="og:description" content="三分查找 三分查找用于求单峰函数的极值。速度快，但是结果并非准确值。">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-08-04T10:38:31.391Z">
-<meta property="article:modified_time" content="2022-08-04T10:38:31.391Z">
+<meta property="article:published_time" content="2019-10-15T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-08-04T15:58:38.000Z">
 <meta property="article:author" content="HDMI">
+<meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="jfyのblog" type="application/atom+xml">
@@ -164,28 +167,50 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="gallery-" class="article article-type-gallery " itemscope itemprop="blogPost">
+            <article id="post-三分查找" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      相册
+      三分查找
     </h1>
   
 
         
         
-        <a href="/gallery/index.html" class="archive-article-date">
-  	<time datetime="2022-08-04T10:38:31.391Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-08-04</time>
+        <a href="/2019/10/16/%E4%B8%89%E5%88%86%E6%9F%A5%E6%89%BE/" class="archive-article-date">
+  	<time datetime="2019-10-15T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-16</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h2 id="三分查找"><a href="#三分查找" class="headerlink" title="三分查找"></a>三分查找</h2><blockquote>
+<p>三分查找用于求单峰函数的极值。<br>速度快，但是结果并非准确值。  </p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><p>首先，在函数上标<strong>4个</strong>点：x&#x3D;le,rt,mid,mmid。其中mmid是mid与rt的中点。  </p>
+<p>现在的任务是通过<code>迭代</code>缩小范围：  </p>
+<blockquote>
+<ol>
+<li>如果f(mid)&gt;f(mmid)，则mmid一定在峰的右边。    </li>
+<li>如果f(mid)&lt;f(mmid)，则mid一定在峰的左边。</li>
+</ol>
+</blockquote>
+<p>证明：</p>
+<ol>
+<li>我们假设存在f(mid)&gt;f(mmid)且mmid在峰的左边。<br>由于f(x)在峰的左边单调递增，且f(mid)&gt;f(mmid)，所以mid在mmid的<strong>右边</strong>。<br>然而mmid &#x3D; \frac{mid+rt}{2}，显然mid在mmid<strong>左边</strong>。矛盾。  <br></li>
+<li>我们假设存在f(mid)&lt;f(mmid)且mid在峰的右边。<br>由于f(x)在峰的右边单调递减，且f(mid)&lt;f(mmid)，所以mid在mmid的<strong>右边</strong>。<br>然而mmid &#x3D; \frac{mid+rt}{2}，显然mid在mmid<strong>左边</strong>。矛盾。</li>
+</ol>
+<h2 id="食用姿势"><a href="#食用姿势" class="headerlink" title="食用姿势"></a>食用姿势</h2><p>首先我们要证明，需要三分的函数是个<strong>单峰函数</strong>。<br>然后就可以写三分了。</p>
+<p><strong>如何控制精度？</strong><br>两种办法。一种是<code>控制迭代次数</code>，一种是<code>直接控制精度</code>。</p>
+<p><code>控制迭代次数</code>：设一个 lambda 值，迭代了这么多次之后就退出。<br><code>直接控制精度</code>：设一个精度限制 eps ，如果 rt-le &lt; eps 就退出。  </p>
+<p>具体用哪种方式<strong>由题目决定</strong>。<br>一般来说，如果题目要求控制<em>相对精度</em>，控制迭代次数比较好；如果题目要求控制<em>绝对精度</em>，直接去控制精确到小数点后多少位比较好。  </p>
+
       
 	
        
@@ -217,7 +242,7 @@
 				
 				<br>
 				<strong>本文链接：</strong>
-				http://example.com/gallery/
+				http://example.com/2019/10/16/%E4%B8%89%E5%88%86%E6%9F%A5%E6%89%BE/
 				<br>
 				<strong>版权声明：</strong>
 				本作品采用
@@ -261,6 +286,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -311,7 +347,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/gallery/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2019/10/16/%E4%B8%89%E5%88%86%E6%9F%A5%E6%89%BE/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -323,6 +359,25 @@
 </article>
 
   
+<nav id="article-nav">
+  
+    <a href="/2019/10/17/%E5%8D%9A%E5%BC%88%E8%AE%BA/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          博弈论
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/10/16/%E8%BF%91%E4%BC%BC%E7%AE%97%E6%B3%95/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">近似算法</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -344,7 +399,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E5%88%86%E6%9F%A5%E6%89%BE"><span class="toc-number">1.</span> <span class="toc-text">三分查找</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A3%9F%E7%94%A8%E5%A7%BF%E5%8A%BF"><span class="toc-number">3.</span> <span class="toc-text">食用姿势</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -390,7 +445,7 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
@@ -659,16 +714,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>相册 | jfyのblog</title>
+  <title>三分查找 | jfyのblog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="相册">
-<meta property="og:url" content="http://example.com/gallery/index.html">
+  <meta name="description" content="三分查找 三分查找用于求单峰函数的极值。速度快，但是结果并非准确值。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="三分查找">
+<meta property="og:url" content="http://example.com/2019/10/16/%E4%B8%89%E5%88%86%E6%9F%A5%E6%89%BE/index.html">
 <meta property="og:site_name" content="jfyのblog">
+<meta property="og:description" content="三分查找 三分查找用于求单峰函数的极值。速度快，但是结果并非准确值。">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-08-04T10:38:31.391Z">
-<meta property="article:modified_time" content="2022-08-04T10:38:31.391Z">
+<meta property="article:published_time" content="2019-10-15T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-08-04T15:58:38.000Z">
 <meta property="article:author" content="HDMI">
+<meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="jfyのblog" type="application/atom+xml">

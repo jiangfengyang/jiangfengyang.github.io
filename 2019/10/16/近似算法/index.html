@@ -6,17 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>相册 | jfyのblog</title>
+  <title>近似算法 | jfyのblog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="相册">
-<meta property="og:url" content="http://example.com/gallery/index.html">
+  <meta name="description" content="近似算法 一万年没更新博客了……毕竟我这么弱。来玩一玩模拟退火算法和遗传算法。  我们的问题是，给定一个乱七八糟的函数，求它在某个区域内的最大值。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="近似算法">
+<meta property="og:url" content="http://example.com/2019/10/16/%E8%BF%91%E4%BC%BC%E7%AE%97%E6%B3%95/index.html">
 <meta property="og:site_name" content="jfyのblog">
+<meta property="og:description" content="近似算法 一万年没更新博客了……毕竟我这么弱。来玩一玩模拟退火算法和遗传算法。  我们的问题是，给定一个乱七八糟的函数，求它在某个区域内的最大值。">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-08-04T10:38:31.391Z">
-<meta property="article:modified_time" content="2022-08-04T10:38:31.391Z">
+<meta property="og:image" content="http://i1.piimg.com/567571/42e0f0a7fea0b290.png">
+<meta property="og:image" content="http://i1.piimg.com/567571/0d87fe3e1bcc6437.png">
+<meta property="article:published_time" content="2019-10-15T16:00:00.000Z">
+<meta property="article:modified_time" content="2019-10-16T15:13:52.000Z">
 <meta property="article:author" content="HDMI">
+<meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://i1.piimg.com/567571/42e0f0a7fea0b290.png">
   
     <link rel="alternative" href="/atom.xml" title="jfyのblog" type="application/atom+xml">
   
@@ -164,28 +170,63 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="gallery-" class="article article-type-gallery " itemscope itemprop="blogPost">
+            <article id="post-近似算法" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      相册
+      近似算法
     </h1>
   
 
         
         
-        <a href="/gallery/index.html" class="archive-article-date">
-  	<time datetime="2022-08-04T10:38:31.391Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-08-04</time>
+        <a href="/2019/10/16/%E8%BF%91%E4%BC%BC%E7%AE%97%E6%B3%95/" class="archive-article-date">
+  	<time datetime="2019-10-15T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-16</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h1 id="近似算法"><a href="#近似算法" class="headerlink" title="近似算法"></a>近似算法</h1><blockquote>
+<p>一万年没更新博客了……毕竟我这么弱。<br>来玩一玩模拟退火算法和遗传算法。</p>
+</blockquote>
+<p>我们的问题是，给定一个乱七八糟的函数，求它在某个区域内的最大值。</p>
+<span id="more"></span>
+
+<h2 id="模拟退火算法"><a href="#模拟退火算法" class="headerlink" title="模拟退火算法"></a>模拟退火算法</h2><h3 id="爬山"><a href="#爬山" class="headerlink" title="爬山"></a>爬山</h3><p>爬山算法是纯粹的贪心算法。给定一个起始点，我们能爬到一个极大值。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">while(1)</span><br><span class="line">&#123;</span><br><span class="line">    if(f(x+0.001) - f(x-0.001) &gt; eps)  x+=0.001;         </span><br><span class="line">    //如果向右走有利，则向右走</span><br><span class="line">    else if(f(x+0.001) - f(x-0.001) &lt; -eps) x+=0.001;</span><br><span class="line">    //如果向左走有利，则向左走</span><br><span class="line"></span><br><span class="line">    else goto finish;       //已经爬到极大值</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>爬山的缺陷在于，它会陷入局部最优解，而难以爬到全局最优解。例如下图。 <img src="http://i1.piimg.com/567571/42e0f0a7fea0b290.png" alt="爬山"></p>
+<p>我们把上面的<code>x+0.001</code>之类的操作称作“移动”。</p>
+<h3 id="经典模拟退火"><a href="#经典模拟退火" class="headerlink" title="经典模拟退火"></a>经典模拟退火</h3><p>模拟退火的思想在于，如果一个移动会<strong>使答案变得更优</strong>，我们就接受这个移动；否则我们以<strong>一定的概率</strong>接受这个移动。</p>
+<p>听起来很玄学。根据物理的那套理论，我们定义两个东西：<br>- 温度(T)(T)。它随着时间推移而逐渐降低。<br>- 增量(E)(E)。它描述一次移动获得的好处。从xx移动到x′x′的增量定义为f(x′)−f(x)f(x′)−f(x)，增量越大，往x′x′移动的优势越大。</p>
+<p>在模拟退火中，如果增量大于00，则直接接受这次移动；否则按下面的概率接受移动：</p>
+<p>P&#x3D;exp(ET)P&#x3D;exp⁡(ET)</p>
+<p>听起来十分的玄学。然而它竟然可以得出精度比较好的解。伪代码如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">T=100.0;               //初始温度</span><br><span class="line"></span><br><span class="line">for(int i=0;i&lt;100;i++)      //控制迭代次数</span><br><span class="line">&#123;</span><br><span class="line">    tar=getPos();           //在x的周围选一个点</span><br><span class="line">    E=f(tar)-f(x);</span><br><span class="line"></span><br><span class="line">    if(E &gt; eps) x=tar;      //直接移动</span><br><span class="line">    else if(exp(E/T) &gt; random(0,1)) x=tar;     //接受移动</span><br><span class="line"></span><br><span class="line">    T=T*0.99;               //降温</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="遗传算法"><a href="#遗传算法" class="headerlink" title="遗传算法"></a>遗传算法</h2><p>不妨假设有一大群兔子，它们均匀地分布在各种地方。<br>由于一些黑恶势力的影响，每年只有位置最高的那100只兔子能活下来。</p>
+<p>位置最高的那些兔子们繁衍生息，它们的后代有些比它们站得高，于是这些后代活了下来；其他后代被黑恶势力搞死了。每年都只有站得最高的100只兔子能活下来。</p>
+<p>在无尽的岁月后，这100只兔子想必都站在了世界上最高的山峰。</p>
+<p>这个算法听起来比模拟退火靠谱。现在它的实现过程如下：</p>
+<ol>
+<li>先随机产生100个点，均匀地分布在所求区间上。</li>
+<li>取每两个点的中位数，这样我们共获得了10000个点。</li>
+<li>取出最高的100个点，然后开始新一轮迭代。</li>
+</ol>
+<p>但是这会引发一个问题。例如下图：</p>
+<p><img src="http://i1.piimg.com/567571/0d87fe3e1bcc6437.png" alt="问题"></p>
+<p>这样的话，无论我们迭代多少次，总是找不到最高点（因为是取中位数）。这搞屁。</p>
+<p>所以我们引入<strong>变异</strong>。每个数都有二进制表示，我们产生一个数之后，对它进行变异操作：二进制的每一位都以pp的概率翻转。</p>
+<p>这样的话，由于变异的存在，迭代若干次之后，最高点是找得到的。</p>
+<p>那么问题来了。<strong>pp到底取多少？</strong></p>
+<p>恭喜您打开了黑暗世界的大门——玄学调参数。由于我们很难给出一个很妙的pp，遗传算法变得比模拟退火还不靠谱。</p>
+<p>如何玄学调参数呢？我们造一些区间比较小的数据，暴力求出答案，然后根据这些数据来调整pp。猜很多个pp的值，看哪个最好。我们只需要考虑p&lt;0.5p&lt;0.5的情况，因为<code>以p的概率翻转</code>，和<code>以p的概率不翻转</code>是本质相同的。</p>
+
       
 	
        
@@ -217,7 +258,7 @@
 				
 				<br>
 				<strong>本文链接：</strong>
-				http://example.com/gallery/
+				http://example.com/2019/10/16/%E8%BF%91%E4%BC%BC%E7%AE%97%E6%B3%95/
 				<br>
 				<strong>版权声明：</strong>
 				本作品采用
@@ -261,6 +302,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -311,7 +363,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/gallery/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2019/10/16/%E8%BF%91%E4%BC%BC%E7%AE%97%E6%B3%95/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -323,6 +375,25 @@
 </article>
 
   
+<nav id="article-nav">
+  
+    <a href="/2019/10/16/%E4%B8%89%E5%88%86%E6%9F%A5%E6%89%BE/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          三分查找
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/10/13/%E6%8E%92%E5%BA%8F%E6%A8%A1%E6%9D%BF/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">排序模板</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -344,7 +415,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BF%91%E4%BC%BC%E7%AE%97%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">近似算法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E6%8B%9F%E9%80%80%E7%81%AB%E7%AE%97%E6%B3%95"><span class="toc-number">1.1.</span> <span class="toc-text">模拟退火算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%88%AC%E5%B1%B1"><span class="toc-number">1.1.1.</span> <span class="toc-text">爬山</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%8F%E5%85%B8%E6%A8%A1%E6%8B%9F%E9%80%80%E7%81%AB"><span class="toc-number">1.1.2.</span> <span class="toc-text">经典模拟退火</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%81%97%E4%BC%A0%E7%AE%97%E6%B3%95"><span class="toc-number">1.2.</span> <span class="toc-text">遗传算法</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -390,7 +461,7 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
@@ -659,17 +730,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>相册 | jfyのblog</title>
+  <title>近似算法 | jfyのblog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="相册">
-<meta property="og:url" content="http://example.com/gallery/index.html">
+  <meta name="description" content="近似算法 一万年没更新博客了……毕竟我这么弱。来玩一玩模拟退火算法和遗传算法。  我们的问题是，给定一个乱七八糟的函数，求它在某个区域内的最大值。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="近似算法">
+<meta property="og:url" content="http://example.com/2019/10/16/%E8%BF%91%E4%BC%BC%E7%AE%97%E6%B3%95/index.html">
 <meta property="og:site_name" content="jfyのblog">
+<meta property="og:description" content="近似算法 一万年没更新博客了……毕竟我这么弱。来玩一玩模拟退火算法和遗传算法。  我们的问题是，给定一个乱七八糟的函数，求它在某个区域内的最大值。">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-08-04T10:38:31.391Z">
-<meta property="article:modified_time" content="2022-08-04T10:38:31.391Z">
+<meta property="og:image" content="http://i1.piimg.com/567571/42e0f0a7fea0b290.png">
+<meta property="og:image" content="http://i1.piimg.com/567571/0d87fe3e1bcc6437.png">
+<meta property="article:published_time" content="2019-10-15T16:00:00.000Z">
+<meta property="article:modified_time" content="2019-10-16T15:13:52.000Z">
 <meta property="article:author" content="HDMI">
+<meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://i1.piimg.com/567571/42e0f0a7fea0b290.png">
   
     <link rel="alternative" href="/atom.xml" title="jfyのblog" type="application/atom+xml">
   
