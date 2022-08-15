@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>学军历险记 | jfyのblog</title>
+  <title>XJOJ (学军OJ) 的 题解集 | jfyのblog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="在学军的军训终于结束了 我是忘记带防晒霜还不敢和新同学借的笨比">
+  <meta name="description" content="[Q10. 摄氏温度转华氏温度_2015高考真题改编](摄氏温度转华氏温度_2015高考真题改编（补充代码） - 题目 - Xuejun Computer Science)12345678910t1&#x3D;int(input())t2&#x3D;int(input())if  t1 &gt; t2  :     t1,t2&#x3D;t2,t1i&#x3D;t1print(&amp;#x27;摄氏温度   华氏温度&amp;#x27;)while">
 <meta property="og:type" content="article">
-<meta property="og:title" content="学军历险记">
-<meta property="og:url" content="http://example.com/2021/08/29/%E5%AD%A6%E5%86%9B%E5%8E%86%E9%99%A9%E8%AE%B0/index.html">
+<meta property="og:title" content="XJOJ (学军OJ) 的 题解集">
+<meta property="og:url" content="http://example.com/2022/08/14/xjoj/index.html">
 <meta property="og:site_name" content="jfyのblog">
-<meta property="og:description" content="在学军的军训终于结束了 我是忘记带防晒霜还不敢和新同学借的笨比">
+<meta property="og:description" content="[Q10. 摄氏温度转华氏温度_2015高考真题改编](摄氏温度转华氏温度_2015高考真题改编（补充代码） - 题目 - Xuejun Computer Science)12345678910t1&#x3D;int(input())t2&#x3D;int(input())if  t1 &gt; t2  :     t1,t2&#x3D;t2,t1i&#x3D;t1print(&amp;#x27;摄氏温度   华氏温度&amp;#x27;)while">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-08-28T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-08-05T00:32:31.588Z">
+<meta property="article:published_time" content="2022-08-13T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-08-14T04:24:32.453Z">
 <meta property="article:author" content="HDMI">
-<meta property="article:tag" content="随笔">
+<meta property="article:tag" content="题解">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="jfyのblog" type="application/atom+xml">
@@ -167,39 +167,44 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-学军历险记" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-xjoj" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      学军历险记
+      XJOJ (学军OJ) 的 题解集
     </h1>
   
 
         
         
-        <a href="/2021/08/29/%E5%AD%A6%E5%86%9B%E5%8E%86%E9%99%A9%E8%AE%B0/" class="archive-article-date">
-  	<time datetime="2021-08-28T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-29</time>
+        <a href="/2022/08/14/xjoj/" class="archive-article-date">
+  	<time datetime="2022-08-13T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-08-14</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>在学军的军训终于结束了 <del>我是忘记带防晒霜还不敢和新同学借的笨比</del></p>
-<span id="more"></span>
+        <h2 id="Q10-摄氏温度转华氏温度-2015高考真题改编-摄氏温度转华氏温度-2015高考真题改编（补充代码）-题目-Xuejun-Computer-Science"><a href="#Q10-摄氏温度转华氏温度-2015高考真题改编-摄氏温度转华氏温度-2015高考真题改编（补充代码）-题目-Xuejun-Computer-Science" class="headerlink" title="[Q10. 摄氏温度转华氏温度_2015高考真题改编](摄氏温度转华氏温度_2015高考真题改编（补充代码） - 题目 - Xuejun Computer Science)"></a>[Q10. 摄氏温度转华氏温度_2015高考真题改编](<a target="_blank" rel="noopener" href="http://115.236.49.52:8000/problem/10">摄氏温度转华氏温度_2015高考真题改编（补充代码） - 题目 - Xuejun Computer Science</a>)</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">t1=<span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">t2=<span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line"><span class="keyword">if</span>  t1 &gt; t2  :   </span><br><span class="line">  t1,t2=t2,t1</span><br><span class="line">i=t1</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;摄氏温度   华氏温度&#x27;</span>)</span><br><span class="line"><span class="keyword">while</span> i &lt;= t2 :  </span><br><span class="line">  f=i*<span class="number">9</span>/<span class="number">5</span>+<span class="number">32</span>   <span class="comment">#摄氏温度转华氏温度</span></span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&#x27;  &#x27;</span>,i,<span class="string">&#x27;   &#x27;</span>,f)</span><br><span class="line">  i+=<span class="number">1</span></span><br></pre></td></tr></table></figure>
+<h2 id="Q32-进制转换：十进制转二进制-进制转换：十进制转二进制-题目-Xuejun-Computer-Science"><a href="#Q32-进制转换：十进制转二进制-进制转换：十进制转二进制-题目-Xuejun-Computer-Science" class="headerlink" title="[Q32.进制转换：十进制转二进制](进制转换：十进制转二进制 - 题目 - Xuejun Computer Science)"></a>[Q32.进制转换：十进制转二进制](<a target="_blank" rel="noopener" href="http://115.236.49.52:8000/problem/32">进制转换：十进制转二进制 - 题目 - Xuejun Computer Science</a>)</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">n = <span class="built_in">int</span>(<span class="built_in">input</span>())`</span><br><span class="line">ans = <span class="string">&#x27;&#x27;</span>`</span><br><span class="line"><span class="keyword">while</span> n :`</span><br><span class="line">    <span class="keyword">if</span>(n%<span class="number">2</span>):`</span><br><span class="line">        ans+=<span class="string">&#x27;1&#x27;</span>;`</span><br><span class="line">    <span class="keyword">else</span> :`</span><br><span class="line">        ans+=<span class="string">&#x27;0&#x27;</span>;`</span><br><span class="line">    n=<span class="built_in">int</span>(n/<span class="number">2</span>);`</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(ans)-<span class="number">1</span>,-<span class="number">1</span>,-<span class="number">1</span>):`</span><br><span class="line">    <span class="built_in">print</span>(ans[i],end=<span class="string">&#x27;&#x27;</span>);`</span><br></pre></td></tr></table></figure>
 
-<p>浅浅分享一下心得：</p>
-<p>1.学军氛围好卷啊 ！！ 军训的晚自习就开始做重难点手册了 我开摆都摆的不心安理得</p>
-<p>2.忽然有点想衢州了，，，，</p>
-<p>3.zjjjjj骗人 本部没有美女呜呜呜</p>
-<p>4.伙食好不习惯 一点都不辣 嘴里要淡出鸟来了</p>
-<p>5.新班主任狠好狠好！！！很照顾我 </p>
-<p>6.学军寝室在学校外面 晚自习结束可以出学校放风 因为是租的大学寝室所以有充电插座  ~~~ 意味着嘿嘿 ？）~~</p>
-<p>偷放一张照片</p>
 
+<h2 id="Q41-K进制转十进制-K进制转十进制（简单版）-题目-Xuejun-Computer-Science"><a href="#Q41-K进制转十进制-K进制转十进制（简单版）-题目-Xuejun-Computer-Science" class="headerlink" title="[Q41. K进制转十进制](K进制转十进制（简单版） - 题目 - Xuejun Computer Science)"></a>[Q41. K进制转十进制](<a target="_blank" rel="noopener" href="http://115.236.49.52:8000/problem/41">K进制转十进制（简单版） - 题目 - Xuejun Computer Science</a>)</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">n = <span class="built_in">input</span>()`</span><br><span class="line">m = <span class="built_in">int</span>(<span class="built_in">input</span>())`</span><br><span class="line">ans = <span class="built_in">int</span>(<span class="number">0</span>)`</span><br><span class="line">ws = <span class="built_in">int</span>((<span class="built_in">len</span>(n)/<span class="number">2</span>))+<span class="number">1</span>`</span><br><span class="line">k = <span class="built_in">int</span>(<span class="number">0</span>);`</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span> (<span class="number">0</span>,<span class="built_in">len</span>(n)):`</span><br><span class="line">    <span class="keyword">if</span> n[i] != <span class="string">&#x27;,&#x27;</span> :`</span><br><span class="line">        ans += <span class="built_in">int</span>(<span class="built_in">ord</span>(n[i])-<span class="built_in">ord</span>(<span class="string">&#x27;0&#x27;</span>)) * (m**(ws-k-<span class="number">1</span>));`</span><br><span class="line">    <span class="keyword">else</span> :`</span><br><span class="line">        k += <span class="number">1</span>;`</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">int</span>(ans));`</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Q73-简单换位密码2-简单换位密码2-题目-Xuejun-Computer-Science"><a href="#Q73-简单换位密码2-简单换位密码2-题目-Xuejun-Computer-Science" class="headerlink" title="[Q73. 简单换位密码2](简单换位密码2 - 题目 - Xuejun Computer Science)"></a>[Q73. 简单换位密码2](<a target="_blank" rel="noopener" href="http://115.236.49.52:8000/problem/73">简单换位密码2 - 题目 - Xuejun Computer Science</a>)</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="built_in">input</span>();</span><br><span class="line">key = <span class="built_in">int</span>(<span class="built_in">input</span>());</span><br><span class="line">a = a[key:] + a[:key];</span><br><span class="line"><span class="built_in">print</span>(a);</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Q90-筛选法求质数-筛选法求质数-题目-Xuejun-Computer-Science"><a href="#Q90-筛选法求质数-筛选法求质数-题目-Xuejun-Computer-Science" class="headerlink" title="[Q90. 筛选法求质数](筛选法求质数 - 题目 - Xuejun Computer Science)"></a>[Q90. 筛选法求质数](<a target="_blank" rel="noopener" href="http://115.236.49.52:8000/problem/90">筛选法求质数 - 题目 - Xuejun Computer Science</a>)</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">n = <span class="built_in">int</span>(<span class="built_in">input</span>());</span><br><span class="line">s = [<span class="number">0</span>] * <span class="number">100005</span> ;</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span> (<span class="number">2</span>,n):</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> s[i]:</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span> * i,n + <span class="number">1</span>,i):</span><br><span class="line">            s[j] += <span class="number">1</span>;</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span> (<span class="number">2</span> ,n + <span class="number">1</span>):</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> s[i]:</span><br><span class="line">        <span class="built_in">print</span>(i,end=<span class="string">&#x27; &#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h2 id="Q91-矩阵交换-矩阵交换-题目-Xuejun-Computer-Science"><a href="#Q91-矩阵交换-矩阵交换-题目-Xuejun-Computer-Science" class="headerlink" title="[Q91. 矩阵交换](矩阵交换 - 题目 - Xuejun Computer Science)"></a>[Q91. 矩阵交换](<a target="_blank" rel="noopener" href="http://115.236.49.52:8000/problem/91">矩阵交换 - 题目 - Xuejun Computer Science</a>)</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">n , m , q = <span class="built_in">map</span>(<span class="built_in">int</span>,<span class="built_in">input</span>().split());</span><br><span class="line">li = [<span class="string">&#x27;&#x27;</span>] * n;</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span> (n) :</span><br><span class="line">    li[i] = <span class="built_in">input</span>() ;</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span> (q):</span><br><span class="line">    a,b = <span class="built_in">map</span>(<span class="built_in">int</span>,<span class="built_in">input</span>().split());</span><br><span class="line">    li[a-<span class="number">1</span>] , li[b-<span class="number">1</span>] = li[b-<span class="number">1</span>] , li[a-<span class="number">1</span>];</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> li:</span><br><span class="line">    <span class="built_in">print</span>( i );</span><br></pre></td></tr></table></figure>
+
+<h2 id="Q100-字符串的查找与删除-字符串的查找与删除-题目-Xuejun-Computer-Science"><a href="#Q100-字符串的查找与删除-字符串的查找与删除-题目-Xuejun-Computer-Science" class="headerlink" title="[Q100. 字符串的查找与删除](字符串的查找与删除 - 题目 - Xuejun Computer Science)"></a>[Q100. 字符串的查找与删除](<a target="_blank" rel="noopener" href="http://115.236.49.52:8000/problem/100">字符串的查找与删除 - 题目 - Xuejun Computer Science</a>)</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">#60分的代码（还没找出来错哪了，，，）</span></span><br><span class="line"><span class="string">n = input();</span></span><br><span class="line"><span class="string">m = input();</span></span><br><span class="line"><span class="string">l2 = &#x27; &#x27; * len(m);</span></span><br><span class="line"><span class="string">li = [];</span></span><br><span class="line"><span class="string">k = 1;</span></span><br><span class="line"><span class="string">while k :</span></span><br><span class="line"><span class="string">  l = n.find(m);</span></span><br><span class="line"><span class="string">  if l &gt;= 0 and n[l-1] == &#x27; &#x27; and n[l+len(m)] == &#x27; &#x27;:</span></span><br><span class="line"><span class="string">​    li.append(l);</span></span><br><span class="line"><span class="string">​    n = n[:l] + l2 + n[l+len(m):];</span></span><br><span class="line"><span class="string">  else :</span></span><br><span class="line"><span class="string">​    k = 0;</span></span><br><span class="line"><span class="string">ans = &#x27;&#x27;;</span></span><br><span class="line"><span class="string">for i in n :</span></span><br><span class="line"><span class="string">  if i != &#x27; &#x27; :</span></span><br><span class="line"><span class="string">​    ans += i ;</span></span><br><span class="line"><span class="string">​    k = 1;</span></span><br><span class="line"><span class="string">  else :</span></span><br><span class="line"><span class="string">​    if k :</span></span><br><span class="line"><span class="string">​      ans += i;</span></span><br><span class="line"><span class="string">​      k = 0;</span></span><br><span class="line"><span class="string">print(ans);</span></span><br><span class="line"><span class="string">if li :</span></span><br><span class="line"><span class="string">  for i in li :</span></span><br><span class="line"><span class="string">​    print(i,end=&#x27; &#x27;);</span></span><br><span class="line"><span class="string">else :</span></span><br><span class="line"><span class="string">  print(&quot;未出现！&quot;);</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#100分的代码</span></span><br><span class="line">n = <span class="built_in">input</span>();</span><br><span class="line">m = <span class="built_in">input</span>();</span><br><span class="line">k = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">ans = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">li = [];</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(n)):</span><br><span class="line">  <span class="keyword">if</span> <span class="string">&#x27;a&#x27;</span> &lt;= n[i] &lt;= <span class="string">&#x27;z&#x27;</span> <span class="keyword">or</span> <span class="string">&#x27;A&#x27;</span> &lt;= n[i] &lt;= <span class="string">&#x27;Z&#x27;</span> :</span><br><span class="line">​    k += n[i];</span><br><span class="line">  <span class="keyword">else</span> :</span><br><span class="line">​    <span class="keyword">if</span> m == k :</span><br><span class="line">​      li.append(i - <span class="built_in">len</span>(m));</span><br><span class="line">​    <span class="keyword">else</span> :</span><br><span class="line">​      ans += k + n[i];</span><br><span class="line">​    k = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line"><span class="built_in">print</span>(ans);</span><br><span class="line"><span class="keyword">if</span> li :</span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> li :</span><br><span class="line">​    <span class="built_in">print</span>(i,end=<span class="string">&#x27; &#x27;</span>);</span><br><span class="line"><span class="keyword">else</span> :</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&#x27;未出现！&#x27;</span>) ;</span><br></pre></td></tr></table></figure>
       
 	
        
@@ -231,7 +236,7 @@
 				
 				<br>
 				<strong>本文链接：</strong>
-				http://example.com/2021/08/29/%E5%AD%A6%E5%86%9B%E5%8E%86%E9%99%A9%E8%AE%B0/
+				http://example.com/2022/08/14/xjoj/
 				<br>
 				<strong>版权声明：</strong>
 				本作品采用
@@ -280,7 +285,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
         		</li>
       		
 		</ul>
@@ -336,7 +341,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/08/29/%E5%AD%A6%E5%86%9B%E5%8E%86%E9%99%A9%E8%AE%B0/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/08/14/xjoj/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -350,18 +355,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2022/08/03/hello-world/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Hello World
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/10/17/cspj/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">CSP-J初赛知识点</div>
+    <a href="/2022/08/04/zhufu/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">祝福</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -388,7 +384,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Q10-%E6%91%84%E6%B0%8F%E6%B8%A9%E5%BA%A6%E8%BD%AC%E5%8D%8E%E6%B0%8F%E6%B8%A9%E5%BA%A6-2015%E9%AB%98%E8%80%83%E7%9C%9F%E9%A2%98%E6%94%B9%E7%BC%96-%E6%91%84%E6%B0%8F%E6%B8%A9%E5%BA%A6%E8%BD%AC%E5%8D%8E%E6%B0%8F%E6%B8%A9%E5%BA%A6-2015%E9%AB%98%E8%80%83%E7%9C%9F%E9%A2%98%E6%94%B9%E7%BC%96%EF%BC%88%E8%A1%A5%E5%85%85%E4%BB%A3%E7%A0%81%EF%BC%89-%E9%A2%98%E7%9B%AE-Xuejun-Computer-Science"><span class="toc-number">1.</span> <span class="toc-text">[Q10. 摄氏温度转华氏温度_2015高考真题改编](摄氏温度转华氏温度_2015高考真题改编（补充代码） - 题目 - Xuejun Computer Science)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Q32-%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2%EF%BC%9A%E5%8D%81%E8%BF%9B%E5%88%B6%E8%BD%AC%E4%BA%8C%E8%BF%9B%E5%88%B6-%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2%EF%BC%9A%E5%8D%81%E8%BF%9B%E5%88%B6%E8%BD%AC%E4%BA%8C%E8%BF%9B%E5%88%B6-%E9%A2%98%E7%9B%AE-Xuejun-Computer-Science"><span class="toc-number">2.</span> <span class="toc-text">[Q32.进制转换：十进制转二进制](进制转换：十进制转二进制 - 题目 - Xuejun Computer Science)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Q41-K%E8%BF%9B%E5%88%B6%E8%BD%AC%E5%8D%81%E8%BF%9B%E5%88%B6-K%E8%BF%9B%E5%88%B6%E8%BD%AC%E5%8D%81%E8%BF%9B%E5%88%B6%EF%BC%88%E7%AE%80%E5%8D%95%E7%89%88%EF%BC%89-%E9%A2%98%E7%9B%AE-Xuejun-Computer-Science"><span class="toc-number">3.</span> <span class="toc-text">[Q41. K进制转十进制](K进制转十进制（简单版） - 题目 - Xuejun Computer Science)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Q73-%E7%AE%80%E5%8D%95%E6%8D%A2%E4%BD%8D%E5%AF%86%E7%A0%812-%E7%AE%80%E5%8D%95%E6%8D%A2%E4%BD%8D%E5%AF%86%E7%A0%812-%E9%A2%98%E7%9B%AE-Xuejun-Computer-Science"><span class="toc-number">4.</span> <span class="toc-text">[Q73. 简单换位密码2](简单换位密码2 - 题目 - Xuejun Computer Science)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Q90-%E7%AD%9B%E9%80%89%E6%B3%95%E6%B1%82%E8%B4%A8%E6%95%B0-%E7%AD%9B%E9%80%89%E6%B3%95%E6%B1%82%E8%B4%A8%E6%95%B0-%E9%A2%98%E7%9B%AE-Xuejun-Computer-Science"><span class="toc-number">5.</span> <span class="toc-text">[Q90. 筛选法求质数](筛选法求质数 - 题目 - Xuejun Computer Science)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Q91-%E7%9F%A9%E9%98%B5%E4%BA%A4%E6%8D%A2-%E7%9F%A9%E9%98%B5%E4%BA%A4%E6%8D%A2-%E9%A2%98%E7%9B%AE-Xuejun-Computer-Science"><span class="toc-number">6.</span> <span class="toc-text">[Q91. 矩阵交换](矩阵交换 - 题目 - Xuejun Computer Science)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Q100-%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%9F%A5%E6%89%BE%E4%B8%8E%E5%88%A0%E9%99%A4-%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%9F%A5%E6%89%BE%E4%B8%8E%E5%88%A0%E9%99%A4-%E9%A2%98%E7%9B%AE-Xuejun-Computer-Science"><span class="toc-number">7.</span> <span class="toc-text">[Q100. 字符串的查找与删除](字符串的查找与删除 - 题目 - Xuejun Computer Science)</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -703,19 +699,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>学军历险记 | jfyのblog</title>
+  <title>XJOJ (学军OJ) 的 题解集 | jfyのblog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="在学军的军训终于结束了 我是忘记带防晒霜还不敢和新同学借的笨比">
+  <meta name="description" content="[Q10. 摄氏温度转华氏温度_2015高考真题改编](摄氏温度转华氏温度_2015高考真题改编（补充代码） - 题目 - Xuejun Computer Science)12345678910t1&#x3D;int(input())t2&#x3D;int(input())if  t1 &gt; t2  :     t1,t2&#x3D;t2,t1i&#x3D;t1print(&amp;#x27;摄氏温度   华氏温度&amp;#x27;)while">
 <meta property="og:type" content="article">
-<meta property="og:title" content="学军历险记">
-<meta property="og:url" content="http://example.com/2021/08/29/%E5%AD%A6%E5%86%9B%E5%8E%86%E9%99%A9%E8%AE%B0/index.html">
+<meta property="og:title" content="XJOJ (学军OJ) 的 题解集">
+<meta property="og:url" content="http://example.com/2022/08/14/xjoj/index.html">
 <meta property="og:site_name" content="jfyのblog">
-<meta property="og:description" content="在学军的军训终于结束了 我是忘记带防晒霜还不敢和新同学借的笨比">
+<meta property="og:description" content="[Q10. 摄氏温度转华氏温度_2015高考真题改编](摄氏温度转华氏温度_2015高考真题改编（补充代码） - 题目 - Xuejun Computer Science)12345678910t1&#x3D;int(input())t2&#x3D;int(input())if  t1 &gt; t2  :     t1,t2&#x3D;t2,t1i&#x3D;t1print(&amp;#x27;摄氏温度   华氏温度&amp;#x27;)while">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-08-28T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-08-05T00:32:31.588Z">
+<meta property="article:published_time" content="2022-08-13T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-08-14T04:24:32.453Z">
 <meta property="article:author" content="HDMI">
-<meta property="article:tag" content="随笔">
+<meta property="article:tag" content="题解">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="jfyのblog" type="application/atom+xml">
